@@ -1,0 +1,389 @@
+.simulation {
+  text-align: center;
+  padding-top: 30px;
+  padding-bottom: 30px;
+}
+
+.simulation p {
+  color: #3f4348;
+  font-size: 13px;
+  margin-bottom: 35px;
+  margin-top: 10px;
+}
+
+.simulation .header-select {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  width: 35%;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  margin: auto;
+  margin-top: 30px;
+}
+
+.simulation .header-select p {
+  text-transform: uppercase;
+  font-size: 17px;
+  color: #3f4348;
+  text-align: left;
+  margin-bottom: 0px;
+  margin-left: 10px;
+  margin-top: 0px;
+}
+
+.simulation button {
+  color: #fff;
+  padding: 12px 70px;
+  background-color: #2a659c;
+  text-transform: uppercase;
+  border: none;
+  font-size: 13px;
+  margin-top: 15px;
+  width: 100%;
+}
+
+.simulation .bg-color-grey {
+  background-color: #707070;
+}
+
+.simulation .main-section {
+  width: 100%;
+  margin: auto;
+  margin-top: 10px;
+}
+
+.simulation .main-section .assembles {
+  width: 25%;
+}
+
+.simulation .main-section .left-header {
+  display: -ms-grid;
+  display: grid;
+  border: 1px solid #707070;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  width: 58%;
+  margin: auto;
+}
+
+.simulation .main-section .left-header i {
+  font-size: 5px;
+  margin-bottom: 3px;
+  color: #707070;
+}
+
+.simulation .main-section .right-header {
+  display: block;
+  border: 1px solid #707070;
+  padding-top: 14px;
+  padding-bottom: 14px;
+  width: 58%;
+  margin: auto;
+}
+
+.simulation .main-section .right-header i {
+  font-size: 5px;
+  margin-bottom: 3px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  color: #707070;
+}
+
+.simulation .main-section .assembly {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  margin-left: 7px;
+  margin-right: 7px;
+}
+.simulation .main-section .left-header .Icons {
+  font-size: 7px;
+  margin: 1px auto;
+  color: #707070;
+}
+.configuratelink .main-section .Icons {
+  -webkit-columns: #707070;
+  columns: #707070;
+}
+
+.simulation .main-section .right-header .Icons {
+  font-size: 7px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  color: #707070;
+  margin: 5px auto;
+}
+
+.simulation .main-section .assembly .wire {
+  -webkit-box-flex: 1;
+  -ms-flex-positive: 1;
+  flex-grow: 1;
+  border-bottom: 1px solid black;
+  margin: 5px 0px;
+}
+
+.simulation .main-section .assembly img {
+  height: 113px;
+}
+
+.simulation .main-section .assembly .widths {
+  width: 18%;
+}
+
+.simulation .main-section .assembly-heading {
+  position: relative;
+  top: -26px;
+}
+
+.simulation .main-section p {
+  font-size: 11px;
+  color: #2a659c;
+  text-decoration: underline;
+  margin-bottom: 0px;
+}
+
+.simulation .main-section .height-adjustment {
+  height: -webkit-fit-content;
+  height: -moz-fit-content;
+  height: fit-content;
+  margin: auto;
+}
+
+.simulation .main-section i {
+  -webkit-columns: #707070;
+  columns: #707070;
+}
+
+.simulation .limitstools .button-class {
+  background-color: transparent;
+  color: #2a659c;
+  text-transform: uppercase;
+  font-size: 15px;
+  margin: 0px;
+  padding: 5px 10px;
+  width: 100%;
+  text-align: left;
+}
+.simulation .limitstools .button-class-second {
+  background-color: #2a659c;
+  color: #fff;
+
+  text-transform: uppercase;
+  font-size: 15px;
+  margin: 0px;
+  padding: 10px 10px;
+  width: 80%;
+  text-align: center;
+  margin-bottom: 23px;
+  margin-top: 27px;
+}
+.simulation .limitstools .card-body input {
+  background-color: #ededee;
+  color: #0266a1;
+  width: 90%;
+  padding: 8px 10px;
+  border: 0px;
+  text-align: center;
+}
+.simulation .limitstools .card-body input::placeholder {
+  color: rgba(102, 161, 100%);
+}
+.simulation .limitstools .card-body h6 {
+  color: #3f4348;
+}
+
+.simulation .limitstools hr {
+  width: 80%;
+}
+.simulation .limitstools h1 {
+  color: #2a659c;
+
+  margin-bottom: 0px;
+  margin-top: 30px;
+}
+.simulation .limitstools .custom-card {
+  border-color: #f7f7f7 !important;
+  border-bottom: 0px !important;
+}
+
+.simulation .limitstools .custom-card:hover button {
+  background-color: #e88302 !important;
+}
+.simulation .limitstools .custom-card:hover h1 {
+  color: #e88302 !important;
+}
+.simulation .limitstools .custom-card2 {
+  border-color: #f7f7f7 !important;
+  border-bottom: 0px !important;
+  opacity: 0.7;
+}
+
+.simulation .limitstools .custom-card2:hover button {
+  background-color: rgb(2, 102, 161) !important;
+}
+.simulation .limitstools .custom-card2:hover h1 {
+  color: rgb(2, 102, 161) !important;
+}
+
+.simulation .limitstools .custom-bg-card-header {
+  background-color: #f7f7f7 !important;
+  border-bottom: 0px !important;
+}
+
+.simulation .limitstools .button-class img {
+  float: right;
+  width: 4%;
+}
+
+.simulation .limitstools .button-class:focus {
+  outline: none;
+}
+
+.simulation .limitstools .card {
+  border-radius: 0px;
+}
+
+.simulation .limitstools .card-header {
+  background-color: #e0e0e0;
+  border-radius: 0px !important;
+  padding: 0px;
+}
+
+.simulation .limitstools .card-body {
+  padding: 0.76rem;
+  background-color: #f7f7f7;
+}
+
+.simulation
+  .limitstools
+  .card-body
+  .pretty
+  input:checked
+  ~ .state.p-success
+  label:after,
+.simulation
+  .limitstools
+  .card-body
+  .pretty.p-toggle
+  .state.p-success
+  label:after {
+  background-color: #2a659c !important;
+}
+
+.simulation .limitstools .card-body .pretty .state label:before {
+  border-color: #2a659c !important;
+}
+
+.simulation .limitstools .card-body p {
+  font-size: 15px;
+  color: #3f4348;
+  text-decoration: none !important;
+  margin-top: 0px;
+  text-align: left;
+}
+
+.simulation .limitstools .card-body label {
+  font-size: 13px;
+  color: #3f4348;
+  margin-left: 5px;
+  margin-bottom: 0px;
+}
+
+.simulation .limitstools .card-body .col-adjust {
+  text-align: left;
+}
+
+.simulation .limitstools .card-body .pretty.p-svg .state .svg {
+  left: -1px;
+  top: calc((0% - (100% - 1em)) - -5%);
+  width: calc(1em + 3px);
+}
+
+.simulation .limitstools .card-body .pretty .state label:after {
+  width: calc(1em + 5px);
+  height: calc(1em + 5px);
+  left: -1px;
+  top: calc((0% - (100% - 1em)) - -25%);
+}
+
+.simulation .limitstools .card-body .pretty .state label:before {
+  width: calc(1em + 9px);
+  height: calc(1em + 9px);
+  left: -3px;
+  top: calc((0% - (100% - 1em)) - -14%);
+}
+
+.simulation .limitstools .card-body button {
+  color: #fff;
+  padding: 5px 39px;
+  background-color: #2a659c;
+  text-transform: uppercase;
+  border: none;
+  font-size: 10px;
+  margin-top: 15px;
+  width: 70%;
+}
+
+.Top {
+  width: 100%;
+}
+
+.Top g path:nth-child(1) {
+  fill: #cc5400;
+  fill-opacity: 0.7;
+}
+.Top g path:nth-child(2) {
+  fill: #cc5400;
+  fill-opacity: 0.1;
+}
+.Top g path:nth-child(3) {
+  fill: #cc5400;
+  fill-opacity: 1;
+}
+.Top g path:nth-child(4) {
+  fill: #cc5400;
+  fill-opacity: 0.2;
+}
+
+.bottom g path:nth-child(1) {
+  fill: #2a659c;
+  fill-opacity: 0.7;
+  z-index: 0;
+}
+.bottom g path:nth-child(2) {
+  fill: #2a659c;
+  fill-opacity: 1;
+}
+.bottom g path:nth-child(3) {
+  fill: #2a659c;
+  fill-opacity: 1;
+}
+
+path {
+  stroke: transparent;
+}
+.bottom g rect,
+.Top g rect {
+  opacity: 0;
+  display: none;
+}

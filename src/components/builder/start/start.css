@@ -1,0 +1,46 @@
+.start {
+  display: flex;
+  flex-direction: column;
+  margin-top: 25px;
+  align-items: center;
+  text-align: center;
+}
+.start h2 {
+  margin-top: 40px;
+  font-size: 17px;
+  font-weight: bold;
+}
+
+.start p {
+  font-size: 12px;
+}
+
+.start h5 {
+  margin: 50px 0 20px 0;
+  font-size: 14px;
+}
+
+.start h4 {
+  font-size: 18px;
+  margin-top: 50px;
+  text-transform: uppercase;
+}
+.start input {
+  outline: none;
+  border: none;
+  width: 300px;
+  height: 40px;
+  color: #000000;
+  background: var(--bg-primary);
+  padding: 5px 10px;
+  margin-bottom: 50px;
+}
+
+.custom-select {
+  border: none;
+  border-radius: 0;
+  color: #000000;
+  background: #f5f5ef
+    url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' width='4' height='5' viewBox='0 0 4 5'%3e%3cpath fill='%23343a40' d='M2 0L0 2h4zm0 5L0 3h4z'/%3e%3c/svg%3e")
+    no-repeat right 0.75rem center/8px 10px;
+}

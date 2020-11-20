@@ -1,0 +1,97 @@
+.login {
+  text-align: center;
+  padding-top: 50px;
+  padding-bottom: 30px;
+}
+
+.login span {
+  color: #3f4348;
+  font-size: 17px;
+  font-weight: bold;
+  letter-spacing: -0.04em;
+  margin-bottom: 15px;
+}
+
+.login p {
+  color: #3f4348;
+  font-size: 13px;
+  margin-bottom: 75px;
+  margin-top: 10px;
+}
+
+.login button {
+  color: #fff;
+  padding: 8px 70px;
+  background-color: #2a659c;
+  text-transform: uppercase;
+  border: none;
+  font-size: 13px;
+  margin: auto;
+  margin-top: 20px;
+  margin-bottom: 10px;
+  width: 60%;
+  display: block;
+}
+
+.login a {
+  font-size: 13px;
+  color: #676767;
+}
+
+.login input {
+  background: none;
+  background-color: #f7f7f7 !important;
+  border-radius: 0px;
+  border-color: #f7f7f7;
+  position: relative;
+  border: none;
+  padding: 10px 12px;
+  width: 100%;
+}
+
+.login label {
+  text-transform: none !important;
+  font-size: 13px !important;
+  color: #676767 !important;
+  margin-top: 20px !important;
+}
+
+.login .pretty input {
+  position: absolute;
+  left: 0;
+  top: 0;
+  min-width: 1em;
+  width: 100%;
+  height: 100%;
+  z-index: 2;
+  opacity: 0;
+  margin: 0;
+  padding: 0;
+  cursor: pointer;
+}
+
+.login .pretty .state label:before {
+  border-color: #676767;
+  top: calc((0% - (100% - 1em)) - -107%);
+  width: calc(1em + 6px);
+  height: calc(1em + 6px);
+  left: -2px;
+}
+
+.login .pretty.p-default input:checked ~ .state label:after {
+  background-color: #2a659c !important;
+  top: calc((0% - (100% - 1em)) - -109%);
+  width: calc(1em + 4px);
+  height: calc(1em + 4px);
+  left: -1px;
+}
+
+.login .checkbox-wrapper {
+  width: -webkit-fit-content;
+  width: -moz-fit-content;
+  width: fit-content;
+}
+
+.login .pretty {
+  margin-left: 5px;
+}

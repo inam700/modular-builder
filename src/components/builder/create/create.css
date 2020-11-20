@@ -1,0 +1,204 @@
+.create-container .text {
+  text-align: center;
+  margin: 25px 0;
+}
+.create-container h2 {
+  font-size: 18px;
+  font-weight: bold;
+}
+.create-container p {
+  font-size: 14px;
+}
+.create-container .create-content {
+  display: grid;
+  grid-template-columns: 60% 40%;
+  grid-gap: 10px;
+}
+
+.create-container .create-left {
+  display: flex;
+  border: 1px solid var(--bg-primary);
+  padding: 20px;
+}
+.create-container .create-left .icons {
+  display: flex;
+  flex-direction: column;
+}
+.create-container .create-left .icons .icon {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 30px;
+}
+.create-container .create-left .icons .icon i {
+  font-size: 30px;
+  margin-left: 15px;
+  color: var(--primary-color);
+}
+.create-container .create-left .icons .icon span {
+  font-size: 11px;
+}
+.create-container .create-left .image {
+  width: 65%;
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+}
+.create-container .create-left img {
+  width: 176px;
+  height: 255px;
+}
+.create-container .create-left .remove-contact {
+  display: flex;
+  flex-direction: column-reverse;
+  margin-left: 20px;
+  opacity: 0.6;
+}
+.create-container .create-left .remove-contact .remove-icon {
+  display: flex;
+}
+.create-container .create-left .remove-contact .remove-icon p {
+  margin-top: 5px;
+  color: #336699;
+}
+.create-container .create-left .remove-contact img {
+  width: 30px;
+  height: 30px;
+}
+
+.create-container .create-right {
+  background: var(--bg-primary);
+}
+.create-container .create-right .setting-btns {
+  text-align: center;
+}
+.create-container .create-right .setting-btns {
+  display: grid;
+  align-items: center;
+  justify-content: space-between;
+  grid-template-columns: 50% 50%;
+}
+
+.create-container .create-right .setting-btns button {
+  outline: none;
+  border: none;
+  background: transparent;
+  padding: 7px 0;
+}
+.create-container .create-right .cards {
+  margin: 30px;
+  grid-gap: 20px;
+}
+.create-container .create-right .cards {
+  display: grid;
+  grid-template-columns: 45% 45%;
+  align-items: center;
+  justify-content: space-between;
+}
+.create-container .create-right .cards .image-card {
+  height: 180px;
+  width: 180px;
+  background: var(--white);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+}
+.create-container .create-right .cards .image-card img {
+  margin-top: 20px;
+}
+.create-container .create-right .settings-second .create-checkbox {
+  width: 150px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 50px;
+}
+
+.active {
+  box-shadow: -2px 2px 7px 0px rgba(48, 50, 50, 0.5);
+  background: none;
+}
+.not-active {
+  color: #bdbfbe;
+  font-weight: 300;
+}
+
+@media screen and (max-width: 500px) {
+  .create-container .create-content {
+    display: flex;
+    flex-direction: column;
+  }
+  .create-container .create-content .create-left {
+    display: flex;
+    flex-direction: column;
+  }
+  .create-container .create-content .create-left .icons {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-evenly;
+  }
+  .create-container .create-content .create-left .image {
+    margin-left: 60px;
+  }
+  .create-container .create-content .create-left .remove-contact {
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+    margin-top: 25px;
+  }
+  .create-container .create-content .create-right .setting-btns button {
+    font-size: 13px;
+  }
+  .create-container .create-content .create-right .cards {
+    grid-template-columns: 30% 30%;
+    justify-content: space-around;
+    margin-left: -20px;
+    margin-top: 30px;
+  }
+  .create-container .create-content .create-right .image-card {
+    height: 150px;
+    width: 150px;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .create-container .create-content {
+    display: flex;
+    flex-direction: column;
+  }
+  .create-container .create-content .create-left {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  .create-container .create-content .create-left .icons {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    width: 250px;
+  }
+  .create-container .create-content .create-left .image {
+    margin-left: 0;
+  }
+  .create-container .create-content .create-left .remove-contact {
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+    margin-top: 25px;
+  }
+  .create-container .create-content .create-right .setting-btns button {
+    font-size: 13px;
+  }
+  .create-container .create-content .create-right .cards {
+    grid-template-columns: 30% 30%;
+    justify-content: space-around;
+    margin-left: -20px;
+    margin-top: 30px;
+  }
+  .create-container .create-content .create-right .image-card {
+    height: 150px;
+    width: 150px;
+  }
+}
