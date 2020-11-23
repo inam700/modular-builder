@@ -7,6 +7,7 @@ import SettingTwo from "./settingTwo";
 import { Modal, Row, Col, Button } from "react-bootstrap";
 import LiteForceConnector from "../../../assets/img/lite-force.png";
 import OrdinaryConnector from "../../../assets/img/ordinary-connector.png";
+import { Link } from "react-router-dom";
 class Create extends Component {
   constructor(props) {
     super(props);
@@ -60,10 +61,14 @@ class Create extends Component {
     const width = this.imgRef.current.clientWidth;
 
     // Increase dimension(Zooming)
-    this.setState({
-      height: height + 10,
-      width: width + 10,
-    });
+    if (height === 325 && width === 246) {
+      return null;
+    } else {
+      this.setState({
+        height: height + 10,
+        width: width + 10,
+      });
+    }
   }
 
   // Event handler callback zoom out
@@ -171,12 +176,13 @@ class Create extends Component {
               {this.renderExactComponent()}
             </div>
           </div>
-          <button
+          <Link
             className="button"
+            to="/adopt"
             style={{ float: "right", marginRight: "-10px" }}
           >
             Finalize
-          </button>
+          </Link>
           <Modal
             show={this.state.openModal}
             onHide={this.closeModal}

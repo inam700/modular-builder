@@ -18,11 +18,11 @@ class Login extends Component {
     };
     return (
       <div>
-        <div class="login">
-          <div class="container">
+        <div className="login">
+          <div className="container">
             <p>Sign in with your myTE Account</p>
-            <div class="row justify-content-center mt-5">
-              <div class="col-lg-4 col-md-12 col-sm-12">
+            <div className="row justify-content-center mt-5">
+              <div className="col-lg-4 col-md-12 col-sm-12">
                 <form>
                   <input
                     className="mb-4"

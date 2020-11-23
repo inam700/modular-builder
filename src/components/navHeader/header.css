@@ -1,4 +1,4 @@
-.container-header{
+.container-header {
   width: 60%;
 }
 .header {
@@ -14,7 +14,7 @@
 .header .sign-in {
   text-transform: uppercase;
   font-size: 14px;
-  color: var(--primary-color);
+  color: #336699;
 }
 
 .header .sign-in i {
@@ -22,6 +22,8 @@
   margin-right: 10px;
 }
 
-.header .sign-in .sign-in-link{
+.header .sign-in .sign-in-link {
   text-decoration: underline !important;
+  color: #336699;
+  font-weight: bold;
 }

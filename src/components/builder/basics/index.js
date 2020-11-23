@@ -1,15 +1,15 @@
 import React, { Component } from "react";
 import NavLinks from "../../navHeader/navLinks";
-import Adopt from "./Adopt";
+import Basics from "./basics";
 
-class AdoptPage extends Component {
+class BasicsPage extends Component {
   render() {
     return (
       <div>
-        <NavLinks page="Adopt" />
-        <Adopt />
+        <NavLinks page="Basics" />
+        <Basics />
       </div>
     );
   }
 }
-export default AdoptPage;
+export default BasicsPage;

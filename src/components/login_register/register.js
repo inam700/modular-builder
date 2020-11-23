@@ -1,4 +1,6 @@
 import React, { Component } from "react";
+import { baseUrl } from "../../redux/BaseUrl";
+import {RegisterUrl} from '../../Services/ApiUrls'
 import "./register.css";
 
 import Loader from "react-loader-spinner";
@@ -58,7 +60,59 @@ export class Register extends Component {
       });
     }
   };
+  PostCall = (index) => {
+    fetch(baseUrl + RegisterUrl, {
+      method: "POST",
+      headers: {
+        Accept: "application/json",
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({
+        profileType: this.state.profiletypes[index],
+        email: this.state.email,
+        password: this.state.Password,
+        fullname: this.state.fullname,
+        mobile: this.state.phone,
+        company: this.state.company,
+        position: this.state.position,
+        address: null,
+        profilePic: null,
+      }),
+    })
+      .then((response) => response.json())
+      .then((res) => {
+        if (res.status === "Success") {
+          console.log("Register Data",res);
+          this.CheckProfileType(index, res.message, "green");
 
+          this.setState({
+            buttonDisabled_M: false,
+            buttonDisabled_L: false,
+            buttonDisabled_XL: false,
+          });
+
+          console.log(res.data.fullName);
+          console.log(res.data.email);
+          console.log(res.data.token);
+          console.log(res.data.profileType);
+
+          localStorage.setItem("username", res.data.fullName);
+          localStorage.setItem("email", res.data.email);
+          localStorage.setItem("token", res.data.token);
+          localStorage.setItem("ProfileType", res.data.profileType);
+          // alert(localStorage.getItem("previousPath"))
+          setTimeout((window.location = "/login"), 2000);
+
+          //  setTimeout( window.location = "./temperature",2000)
+          //window.location = "./temperature";
+        } else {
+          this.CheckProfileType(index, res.message, "red");
+        }
+      })
+      .catch((error) => {
+        console.log("Error :" + error);
+      });
+  };
   SetActivelist = (index) => {
     if (this.state.profiletypes[index] === "M") {
       if (

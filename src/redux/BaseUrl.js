@@ -1,1 +1,1 @@
-export const baseUrl = "";
+export const baseUrl = "http://test-te.us-east-2.elasticbeanstalk.com/api/";

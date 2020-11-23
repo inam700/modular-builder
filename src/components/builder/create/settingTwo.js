@@ -4,10 +4,14 @@ import RangeSlider from "../../../utils/rangeSlider";
 class SettingTwo extends Component {
   state = {
     rangePositions: 0,
-    currentValue: "12",
+    rowsValue: "1",
+    offSetValue: "Yes",
   };
-  handleVoltageValue = (e) => {
-    this.setState({ currentValue: e.target.value });
+  handleRows = (e) => {
+    this.setState({ rowsValue: e.target.value });
+  };
+  handleOffSet = (e) => {
+    this.setState({ offSetValue: e.target.value });
   };
   handleRangePositions = (e) => {
     this.setState({ rangePositions: e.target.value });
@@ -55,24 +59,24 @@ class SettingTwo extends Component {
             <label className="checkbox">
               <input
                 type="checkbox"
-                value="48"
-                checked={this.state.currentValue === "48"}
-                onChange={this.handleVoltageValue}
+                value="1"
+                checked={this.state.rowsValue === "1"}
+                onChange={this.handleRows}
                 className="checkbox"
               />
               <span className="checkbox-custom" />
-              <label>12V</label>
+              <label>1</label>
             </label>
             <label className="checkbox">
               <input
                 type="checkbox"
-                value="12"
-                checked={this.state.currentValue === "12"}
-                onChange={this.handleVoltageValue}
+                value="2"
+                checked={this.state.rowsValue === "2"}
+                onChange={this.handleRows}
                 className="checkbox"
               />
               <span className="checkbox-custom" />
-              <label>48V</label>
+              <label>2</label>
             </label>
           </div>
         </div>
@@ -82,27 +86,28 @@ class SettingTwo extends Component {
             <label className="checkbox">
               <input
                 type="checkbox"
-                value="48"
-                checked={this.state.currentValue === "48"}
-                onChange={this.handleVoltageValue}
+                value="Yes"
+                checked={this.state.offSetValue === "Yes"}
+                onChange={this.handleOffSet}
                 className="checkbox"
               />
               <span className="checkbox-custom" />
-              <label>12V</label>
+              <label>Yes</label>
             </label>
             <label className="checkbox">
               <input
                 type="checkbox"
-                value="12"
-                checked={this.state.currentValue === "12"}
-                onChange={this.handleVoltageValue}
+                value="No"
+                checked={this.state.offSetValue === "No"}
+                onChange={this.handleOffSet}
                 className="checkbox"
               />
               <span className="checkbox-custom" />
-              <label>48V</label>
+              <label>No</label>
             </label>
           </div>
         </div>
+
         <button
           className="button"
           style={{ float: "right", margin: "0px 20px 20px 0px" }}

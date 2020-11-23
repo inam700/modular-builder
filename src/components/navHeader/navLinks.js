@@ -1,25 +1,11 @@
 import React, { Component } from "react";
 import "./navLinks.css";
-import Start from "../builder/start/start";
-import Basics from "../builder/basics/basics";
-import Adopt from "../builder/adopt/Adopt";
-import Create from "../builder/create/create";
+import { Link } from "react-router-dom";
 
 class NavLinks extends Component {
   state = {
     isActive: true,
-    renderComponent: "Start",
-  };
-  renderExactComponent = () => {
-    if (this.state.renderComponent === "Start") {
-      return <Start />;
-    } else if (this.state.renderComponent === "Basics") {
-      return <Basics />;
-    } else if (this.state.renderComponent === "Create") {
-      return <Create />;
-    } else if (this.state.renderComponent === "Adopt") {
-      return <Adopt />;
-    }
+    renderComponent: this.props.page,
   };
   render() {
     return (
@@ -30,7 +16,8 @@ class NavLinks extends Component {
             <span>TE Connectivity (TE)</span>
           </div>
           <div className="navbar-links">
-            <div
+            <Link
+              to="/"
               className={
                 this.state.renderComponent === "Start"
                   ? "nav-link-active"
@@ -41,8 +28,10 @@ class NavLinks extends Component {
               }}
             >
               1. Start
-            </div>
-            <div
+            </Link>
+
+            <Link
+              to="/basics"
               className={
                 this.state.renderComponent === "Basics"
                   ? "nav-link-active"
@@ -53,8 +42,10 @@ class NavLinks extends Component {
               }}
             >
               2. Basics
-            </div>
-            <div
+            </Link>
+
+            <Link
+              to="/create"
               className={
                 this.state.renderComponent === "Create"
                   ? "nav-link-active"
@@ -65,9 +56,10 @@ class NavLinks extends Component {
               }}
             >
               3. Create
-            </div>
+            </Link>
 
-            <div
+            <Link
+              to="/adopt"
               className={
                 this.state.renderComponent === "Adopt"
                   ? "nav-link-active"
@@ -78,10 +70,9 @@ class NavLinks extends Component {
               }}
             >
               4. Adopt
-            </div>
+            </Link>
           </div>
         </div>
-        {this.renderExactComponent()}
       </div>
     );
   }

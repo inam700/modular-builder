@@ -22,6 +22,7 @@
 }
 .nav-container .text span {
   color: #555;
+  margin-top: -10px;
 }
 
 .navbar-links {
@@ -38,10 +39,12 @@
 .navbar-links .nav-link {
   padding: 9px 46px;
   border: 1px solid #e8e4e4;
+  color: #336699;
 }
 .navbar-links .nav-link-active {
   padding: 8px 48px;
   border-bottom: 3px solid #336699;
+  color: #336699;
 }
 
 @media screen and (max-width: 500px) {

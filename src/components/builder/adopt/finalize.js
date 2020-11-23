@@ -22,7 +22,9 @@ class Finalize extends Component {
             src={calendarImg}
             alt="Calendar-Confirm"
           />
-          <button className="button" onClick={this.continue}>Start New Configuration</button>
+          <button className="button" onClick={this.continue}>
+            Start New Configuration
+          </button>
         </div>
       </div>
     );

@@ -19,9 +19,7 @@ class AdoptContact extends Component {
           </p>
           <img src={img} alt="adopt" />
           <div className="buttons">
-            <button className="button" onClick={this.continue}>
-              Contact TE
-            </button>
+            <button className="button">Contact TE</button>
             <button className="button" style={{ backgroundColor: "#707070" }}>
               Start New Build
             </button>

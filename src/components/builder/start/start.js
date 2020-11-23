@@ -1,25 +1,31 @@
 import React, { Component } from "react";
+import { Link } from "react-router-dom";
 import "./start.css";
 class Start extends Component {
   state = {
     name: "",
-    btnActive: false,
+    btnActive: true,
     dropDownValue: "",
   };
-  handleChange = (e) => {
-    const { btnActive } = this.state;
-    this.setState({ [e.target.name]: e.target.value });
+
+  valid(item, type) {
+    let datavalue = item.target.value;
+    console.log(datavalue);
     if (this.state.name) {
+      this.setState({
+        btnActive: false,
+      });
+    } else {
       this.setState({ btnActive: true });
     }
-  };
-  continue = (e) => {
-    e.preventDefault();
-    this.props.nextStep();
-  };
+    if (type === "name") {
+      this.setState({
+        name: datavalue,
+      });
+    }
+  }
 
   render() {
-    const { name } = this.state;
     return (
       <div className="container">
         <div className="start">
@@ -53,23 +59,28 @@ class Start extends Component {
             </select>
           </div>
           <h4>Name Your Component:</h4>
+          {/* <input
+            type="text"
+            value={this.state.name}
+            onChange={(e) => {
+              this.handleChange(e)
+            }}
+            placeholder="Component Name"
+          /> */}
           <input
             type="text"
-            name="name"
-            value={name}
-            onChange={this.handleChange}
-            placeholder="Component Name"
+            onChange={(item) => this.valid(item, "name")}
+            placeholder="Enter Component Name"
           />
-          {console.log(name)}
-          {this.state.btnActive ? (
-            <button className="button" onClick={this.continue}>
-              Continue
-            </button>
-          ) : (
-            <button disabled={true} className="button button-disabled">
-              Continue
-            </button>
-          )}
+
+          <button
+            disabled={this.state.btnActive}
+            className={
+              this.state.btnActive ? "button button-disabled" : "button"
+            }
+          >
+            Continue
+          </button>
         </div>
       </div>
     );
