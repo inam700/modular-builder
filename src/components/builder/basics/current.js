@@ -59,6 +59,8 @@ class Current extends Component {
   continue = (e) => {
     e.preventDefault();
     this.props.nextStep();
+    localStorage.setItem("rangeCurrentFirst", this.state.rangeCurrentFirst);
+    localStorage.setItem("rangeCurrentSecond", this.state.rangeCurrentSecond);
   };
   render() {
     const ProgressLine = ({ done }) => (

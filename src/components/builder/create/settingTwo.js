@@ -36,6 +36,13 @@ class SettingTwo extends Component {
       this.setState({ rangePositions: increment });
     }
   };
+  handleSubmit = () => {
+    const { rangePositions, rowsValue, offSetValue } = this.state;
+    this.props.handleModal();
+    localStorage.setItem("Positions", rangePositions);
+    localStorage.setItem("Rows", rowsValue);
+    localStorage.setItem("OffSet", offSetValue);
+  };
   render() {
     return (
       <div className="settings-second">
@@ -111,7 +118,7 @@ class SettingTwo extends Component {
         <button
           className="button"
           style={{ float: "right", margin: "0px 20px 20px 0px" }}
-          onClick={this.props.handleModal}
+          onClick={this.handleSubmit}
         >
           Apply
         </button>

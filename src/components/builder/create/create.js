@@ -7,7 +7,8 @@ import SettingTwo from "./settingTwo";
 import { Modal, Row, Col, Button } from "react-bootstrap";
 import LiteForceConnector from "../../../assets/img/lite-force.png";
 import OrdinaryConnector from "../../../assets/img/ordinary-connector.png";
-import { Link } from "react-router-dom";
+import { Link, withRouter } from "react-router-dom";
+import { callWithMethodAndData } from "../../../Services/ApiServices";
 class Create extends Component {
   constructor(props) {
     super(props);
@@ -54,6 +55,13 @@ class Create extends Component {
   componentDidMount = () => {
     this.initialHeight = this.imgRef.current.clientHeight;
     this.initialWidth = this.imgRef.current.clientWidth;
+    console.log(localStorage.getItem("FunctionalArea"));
+    console.log(localStorage.getItem("ComponentName"));
+    console.log(localStorage.getItem("Voltage"));
+    console.log(localStorage.getItem("rangeCurrentFirst"));
+    console.log(localStorage.getItem("rangeCurrentSecond"));
+    console.log(localStorage.getItem("WireSize"));
+    console.log(localStorage.getItem("id"));
   };
   handleZoomIn() {
     // Fetching current height and width
@@ -93,6 +101,12 @@ class Create extends Component {
       width: this.initialWidth,
     });
   }
+  handleRedirect = () => {
+    localStorage.getItem("isLogin") === "true"
+      ? this.props.history.push("/adopt")
+      : this.props.history.push("/register");
+    localStorage
+  };
   renderExactComponent = () => {
     if (this.state.renderComponent === "SettingOne") {
       return <SettingOne />;
@@ -100,6 +114,7 @@ class Create extends Component {
       return <SettingTwo handleModal={this.openModal} />;
     }
   };
+
   render() {
     const imgStyle = { height: this.state.height, width: this.state.width };
     return (
@@ -178,8 +193,8 @@ class Create extends Component {
           </div>
           <Link
             className="button"
-            to="/adopt"
             style={{ float: "right", marginRight: "-10px" }}
+            onClick={this.handleRedirect}
           >
             Finalize
           </Link>
@@ -296,4 +311,4 @@ class Create extends Component {
     );
   }
 }
-export default Create;
+export default withRouter(Create);

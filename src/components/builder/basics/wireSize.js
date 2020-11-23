@@ -35,6 +35,10 @@ class WireSize extends Component {
       this.setState({ rangeWire: increment });
     }
   };
+  handleChange=()=>{
+    localStorage.setItem("WireSize", this.state.rangeWire);
+
+  }
   render() {
     const ProgressLine = ({ done }) => (
       <div className="progress-line">
@@ -100,7 +104,6 @@ class WireSize extends Component {
                 onChange={this.handleWireValue}
                 onClickNegative={this.handleNegativeRange}
                 onClickPositve={this.handlePositiveRange}
-                defaultValue="50"
               />
             </div>
           </div>
@@ -109,6 +112,7 @@ class WireSize extends Component {
               className="button"
               style={{ textAlign: "center" }}
               to="/create"
+              onClick={this.handleChange}
             >
               Continue
             </Link>

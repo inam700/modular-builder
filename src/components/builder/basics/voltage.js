@@ -2,13 +2,12 @@ import React, { Component } from "react";
 
 class Voltage extends Component {
   state = {
-    currentValue: "",
+    voltage: "",
     btnActive: false,
-    renderComponent: "Voltage",
   };
   handleVoltageValue = (e) => {
-    this.setState({ currentValue: e.target.value });
-    if (this.state.currentValue === "12" || "48") {
+    this.setState({ voltage: e.target.value });
+    if (this.state.voltage === "12" || "48") {
       this.setState({ btnActive: true });
     } else {
       this.setState({ btnActive: false });
@@ -17,7 +16,9 @@ class Voltage extends Component {
   continue = (e) => {
     e.preventDefault();
     this.props.nextStep();
+    localStorage.setItem("Voltage", this.state.voltage);
   };
+
   render() {
     const ProgressLine = ({ done }) => (
       <div className="progress-line">
@@ -35,7 +36,7 @@ class Voltage extends Component {
             To make your product fit perfectly for your desired application,
             please select the following attributes down below.
           </p>
-          <ProgressLine done={this.state.currentValue ? "30" : "0"} />
+          <ProgressLine done={this.state.voltage ? "30" : "0"} />
           <div className="content">
             <div className="vertical-nav-links">
               <button
@@ -72,8 +73,8 @@ class Voltage extends Component {
                 <label className="checkbox">
                   <input
                     type="checkbox"
-                    value="48"
-                    checked={this.state.currentValue === "48"}
+                    value="12"
+                    checked={this.state.voltage === "12"}
                     onChange={this.handleVoltageValue}
                     className="checkbox"
                   />
@@ -83,8 +84,8 @@ class Voltage extends Component {
                 <label className="checkbox">
                   <input
                     type="checkbox"
-                    value="12"
-                    checked={this.state.currentValue === "12"}
+                    value="48"
+                    checked={this.state.voltage === "48"}
                     onChange={this.handleVoltageValue}
                     className="checkbox"
                   />
