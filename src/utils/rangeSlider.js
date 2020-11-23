@@ -39,7 +39,6 @@ function RangeSlider({
           max={max}
           value={value}
           onChange={onChange}
-          defaultValue="50"
         />
       </div>
       <button className="range-move-btn" onClick={onClickPositve}>

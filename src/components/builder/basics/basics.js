@@ -7,10 +7,6 @@ import WireSize from "./wireSize";
 class Basics extends Component {
   state = {
     step: 1,
-    voltage: "",
-    currentAt23: "",
-    currentAt80: "",
-    wireSize: "",
   };
   nextStep = () => {
     const { step } = this.state;
@@ -26,7 +22,12 @@ class Basics extends Component {
       const { step } = this.state;
       switch (step) {
         case 1:
-          return <Voltage nextStep={this.nextStep} step={this.state.step} />;
+          return (
+            <Voltage
+              nextStep={this.nextStep}
+              step={this.state.step}
+            />
+          );
         case 2:
           return (
             <Current

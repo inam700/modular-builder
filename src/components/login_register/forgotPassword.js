@@ -1,10 +1,9 @@
 import React, { Component } from "react";
 import "./login.css";
-import { Link } from "react-router-dom";
 import { baseUrl } from "../../redux/BaseUrl";
-import { LoginUrl } from "../../Services/ApiUrls";
+import {forgotPassword} from '../../Services/ApiUrls'
 
-export class login extends Component {
+class ForgotPassword extends Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -17,7 +16,7 @@ export class login extends Component {
   }
 
   OnLogin = () => {
-    if (this.state.email === "" || this.state.password === "") {
+    if (this.state.email === "") {
       this.setState({
         enabledisable: false,
         loginMsg: "Fields must be filled !",
@@ -30,44 +29,30 @@ export class login extends Component {
         color: "green",
       });
 
-      fetch(baseUrl + LoginUrl, {
-        method: "POST",
+      fetch(baseUrl + forgotPassword + this.state.email, {
+        method: "GET",
         headers: {
           Accept: "application/json",
           "Content-Type": "application/json",
+          projectId: 7,
         },
-        body: JSON.stringify({
-          projectid: 7,
-          email: this.state.email,
-          password: this.state.password,
-        }),
       })
         .then((response) => response.json())
         .then((res) => {
           if (res.status === "Success") {
             console.log(res);
-            console.log(res.data.fullName);
-            console.log(res.data.email);
-            console.log(res.data.token);
-            console.log(res.data.id);
 
-            localStorage.setItem("username", res.data.fullName);
-            localStorage.setItem("isLogin", "true");
-            localStorage.setItem("email", res.data.email);
-            localStorage.setItem("token", res.data.token);
-            localStorage.setItem("id", res.data.id);
-            localStorage.setItem("RefreshToken", res.data.refreshToken);
             this.setState(
               {
                 email: "",
                 password: "",
-                loginMsg: "Login Sucessfully !",
+                loginMsg: "Please check your email !",
                 color: "green",
                 enabledisable: false,
               },
               () => {
                 // After Login sucessfully
-                window.location = "/";
+                //window.location = "./temperature";
               }
             );
           } else {
@@ -99,7 +84,7 @@ export class login extends Component {
       <div>
         <div className="login">
           <div className="container">
-            <p>Sign in with your myTE Account</p>
+            <p>Please Enter your Registered email address.</p>
 
             <div className="row justify-content-center mt-5">
               <div className="col-lg-4 col-md-12 col-sm-12">
@@ -110,35 +95,27 @@ export class login extends Component {
                     placeholder="Email Address"
                     onChange={(e) => this.setState({ email: e.target.value })}
                   />
-                  <input
-                    type="password"
-                    placeholder="Password"
-                    onChange={(e) =>
-                      this.setState({ password: e.target.value })
-                    }
-                  />
+                  {/* <input type="password" placeholder="Password" onChange={(e) => this.setState({ password: e.target.value })} /> */}
                   <p style={loginMsgColor} className="mb-0">
                     {this.state.loginMsg}
                   </p>
                   {/* <div class="checkbox-wrapper">
-                    <div class="pretty p-default">
-                      <input type="checkbox" />
-                      <div class="state">
-                        <label>Remember me</label>
-                      </div>
-                    </div>
-                  </div> */}
+                                        <div class="pretty p-default">
+                                            <input type="checkbox" />
+                                            <div class="state">
+                                                <label>Remember me</label>
+                                            </div>
+                                        </div>
+                                    </div> */}
 
                   {this.state.enabledisable === false ? (
-                    <button onClick={this.OnLogin}>Sign in</button>
+                    <button onClick={this.OnLogin}>Send</button>
                   ) : (
                     <button style={{ opacity: "0.7" }} disabled>
-                      Sign in
+                      Send
                     </button>
                   )}
-                  <Link to={"/forgotpassword"} href="#">
-                    Forget password?
-                  </Link>
+                  {/* <Link to={"/forgotpassword"} href="#">Forget password?</Link> */}
                 </div>
               </div>
             </div>
@@ -149,4 +126,4 @@ export class login extends Component {
   }
 }
 
-export default login;
+export default ForgotPassword;

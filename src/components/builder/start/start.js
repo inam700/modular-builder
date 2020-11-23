@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import {Link} from 'react-router-dom'
+import { Link } from "react-router-dom";
 import "./start.css";
 class Start extends Component {
   state = {
@@ -19,6 +19,11 @@ class Start extends Component {
         name: datavalue,
       });
     }
+  }
+  handleSubmit=()=>{
+    const {dropDownValue,name}=this.state;
+    localStorage.setItem("FunctionalArea",dropDownValue);
+    localStorage.setItem("ComponentName",name);
   }
 
   render() {
@@ -49,27 +54,22 @@ class Start extends Component {
               style={{ height: "45px" }}
               id="inputGroupSelect01"
             >
-              <option defaultValue>Functional Area</option>
-              <option value="1">New Era of Games</option>
-              <option value="2">Production Build</option>
+              <option defaultValue value="1">
+                Functional Area
+              </option>
+              <option value="2">New Era of Games</option>
+              <option value="3">Production Build</option>
             </select>
+            {console.log(this.state.dropDownValue)}
           </div>
           <h4>Name Your Component:</h4>
-          {/* <input
-            type="text"
-            value={this.state.name}
-            onChange={(e) => {
-              this.handleChange(e)
-            }}
-            placeholder="Component Name"
-          /> */}
           <input
             type="text"
             onChange={(item) => this.valid(item, "name")}
             placeholder="Enter Component Name"
           />
           {this.state.btnActive === false ? (
-            <Link className="button" to="/basics">
+            <Link className="button" to="/basics" onClick={this.handleSubmit}>
               Continue
             </Link>
           ) : (
@@ -77,15 +77,6 @@ class Start extends Component {
               Continue
             </button>
           )}
-
-          {/* <button
-            disabled={this.state.btnActive}
-            className={
-              this.state.btnActive ? "button button-disabled" : "button"
-            }
-          >
-            Continue
-          </button> */}
         </div>
       </div>
     );
