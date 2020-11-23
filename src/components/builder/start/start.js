@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { Link } from "react-router-dom";
+import {Link} from 'react-router-dom'
 import "./start.css";
 class Start extends Component {
   state = {
@@ -11,13 +11,9 @@ class Start extends Component {
   valid(item, type) {
     let datavalue = item.target.value;
     console.log(datavalue);
-    if (this.state.name) {
-      this.setState({
-        btnActive: false,
-      });
-    } else {
-      this.setState({ btnActive: true });
-    }
+    this.setState({
+      btnActive: false,
+    });
     if (type === "name") {
       this.setState({
         name: datavalue,
@@ -72,15 +68,24 @@ class Start extends Component {
             onChange={(item) => this.valid(item, "name")}
             placeholder="Enter Component Name"
           />
+          {this.state.btnActive === false ? (
+            <Link className="button" to="/basics">
+              Continue
+            </Link>
+          ) : (
+            <button className="button button-disabled" disabled>
+              Continue
+            </button>
+          )}
 
-          <button
+          {/* <button
             disabled={this.state.btnActive}
             className={
               this.state.btnActive ? "button button-disabled" : "button"
             }
           >
             Continue
-          </button>
+          </button> */}
         </div>
       </div>
     );
