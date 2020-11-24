@@ -21,17 +21,24 @@ class Header extends Component {
               window.location = "/";
             }}
           />
-          <div className="sign-in">
-            <i className="fas fa-user" />
+          <div>
             {localStorage.getItem("isLogin") === "true" ? (
-              <Link className="sign-in-link" onClick={this.handleLogout}>
-                {localStorage.getItem("email")}
-                Logout
-              </Link>
+              <div className="sign-in">
+                <i className="fas fa-user" />
+                <Link style={{ marginRight: "15px" }} to="/myprofile">
+                  {localStorage.getItem("email")}
+                </Link>
+                <Link className="sign-in-link" onClick={this.handleLogout}>
+                  Logout
+                </Link>
+              </div>
             ) : (
-              <Link className="sign-in-link" to="/login">
-                Sign In
-              </Link>
+              <div className="sign-in">
+                <i className="fas fa-user" />
+                <Link className="sign-in-link" to="/login">
+                  Sign In
+                </Link>
+              </div>
             )}
           </div>
         </div>

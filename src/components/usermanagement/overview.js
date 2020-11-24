@@ -5,12 +5,29 @@ import Card from 'react-bootstrap/Card'
 import simulation from '../../img/simulation.png'
 import { ButtonGroup } from 'react-bootstrap'
 import ProgressBar from 'react-bootstrap/ProgressBar'
-import { callWithMethodAndData  } from '../../Services/ApiServices'
+import { callWithMethodAndNoData  } from '../../Services/ApiServices'
 
 
 class overview extends Component {
     state = {
-        simulations:[]
+        connectors:[
+            {id: 1, functionalArea: 1, componentName: "connector 1", voltage : 2, current1 : 12, current2: 12, wireSize: 1.0, cableConnecton: { id: 5, modularConnectorId: 1, name: "cable connector", position: 1, offsetChambers: 1, rows: 2, createdAt: "2020-11-11T12:54:46.943", updatedAt: "2020-11-11T12:54:46.943" }, updatedAt: "12.11.2020 10:00 AM"},
+            {id: 2, functionalArea: 1, componentName: "connector 2", voltage : 2, current1 : 12, current2: 12, wireSize: 1.0, cableConnecton: { id: 5, modularConnectorId: 1, name: "cable connector", position: 1, offsetChambers: 1, rows: 2, createdAt: "2020-11-11T12:54:46.943", updatedAt: "2020-11-11T12:54:46.943" }, updatedAt: "12.11.2020 10:00 AM"}
+        ]
+    }
+
+    componentDidMount(){
+        let method="GET"
+        let type='ModularBuilder/getlist'
+        callWithMethodAndNoData(type, method).then((result)=>{
+            let responsejson=result;
+            console.log(responsejson)
+            if(responsejson.status==="Success"){
+               
+            }
+            
+           
+          })
     }
     showDetail(detail){
         // alert("ello")
@@ -37,7 +54,7 @@ class overview extends Component {
                             <ButtonGroup vertical style={{width:"90%"}}>
                                 <Button className="profilebtns textuppercase mb-5" style={{width:"140px"}} href="/myprofile">Account</Button>
                                 <Button className="profilebtns textuppercase mt-5" style={{width:"175px"}} href="./prologue">
-                                    start new simulation
+                                    Create a new Connector
                                 </Button> 
                             </ButtonGroup>
                         </div>
@@ -48,13 +65,13 @@ class overview extends Component {
                     <div className="col-sm-8 ml-n4">
 
                             <div className="overviewheadings ml-n3">
-                                <p className="textuppercase"> my simulations</p>
+                                <p className="textuppercase"> my Connectors</p>
                             </div>
 
                             <div className="mt-4">
                                 <div className="row mr-5 mb-1">
                                     {
-                                        this.state.simulations.map((Detail, i)=>{
+                                        this.state.connectors.map((Detail, i)=>{
                                             return(
                                                 <Card onClick={()=>this.showDetail(Detail)}
                                                 style={{width:"260px", height:"200px"}} className="simulation carddesign mr-3">
@@ -70,8 +87,8 @@ class overview extends Component {
                                                   
                                                         <div className="row mr-1">
                                                             <div className="col-8">
-                                            <h6 className="p-0 m-0 mt-4" style={{color:"darkblue", height:"20px"}}>{Detail.simulationName}</h6>
-                                            <p className="p-0 m-0 pl-1" style={{fontSize:"12px",color:"darkblue"}}>{Detail.createdAt}</p>
+                                            <h6 className="p-0 m-0 mt-4" style={{color:"darkblue", height:"20px"}}>{Detail.componentName}</h6>
+                                            <p className="p-0 m-0 pl-1" style={{fontSize:"12px",color:"darkblue"}}>{Detail.updatedAt}</p>
                                                             </div>
                                                         </div>
                                                     </div>

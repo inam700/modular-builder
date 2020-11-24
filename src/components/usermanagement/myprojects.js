@@ -20,7 +20,8 @@ class myprojects extends Component {
       ProjectName:"",
       nameError:"Project Name is Required!",
       nameErrorshow:false,
-      groups:[],
+      groups:[{id: 1, functionalArea: 1, componentName: "connector 1", voltage : 2, current1 : 12, current2: 12, wireSize: 1.0, cableConnecton: { id: 5, modularConnectorId: 1, name: "cable connector", position: 1, offsetChambers: 1, rows: 2, createdAt: "2020-11-11T12:54:46.943", updatedAt: "2020-11-11T12:54:46.943" }, updatedAt: "12.11.2020 10:00 AM"},
+      {id: 2, functionalArea: 1, componentName: "connector 2", voltage : 2, current1 : 12, current2: 12, wireSize: 1.0, cableConnecton: { id: 5, modularConnectorId: 1, name: "cable connector", position: 1, offsetChambers: 1, rows: 2, createdAt: "2020-11-11T12:54:46.943", updatedAt: "2020-11-11T12:54:46.943" }, updatedAt: "12.11.2020 10:00 AM"}],
       compareButtom:false
     };
   }
@@ -81,7 +82,7 @@ class myprojects extends Component {
       var getIds= JSON.parse(localStorage.getItem("GroupIds"))
       obj.simulationIds= getIds
       console.log(obj )
-      let method="POST"
+      /* let method="POST"
       let type="simulations/group"
       callWithMethodAndData(type,method, obj).then((result)=>{
           let responsejson=result;
@@ -96,7 +97,7 @@ class myprojects extends Component {
             window.location.reload();
           }
        
-      }) 
+      })  */
     }
  
   }
@@ -127,7 +128,7 @@ class myprojects extends Component {
           <div className="row mt-4" style={this.state.groups?{}:{display:"none"}}>
           <div className="col-12">
             <div className="overviewheadings">
-              <p className="textuppercase"> my projects</p>
+              <p className="textuppercase"> my Connectors</p>
             </div>
           </div>
         </div>
@@ -167,7 +168,7 @@ class myprojects extends Component {
         <div className="row">
           <div className="col-12 mt-3">
             <div className="overviewheadings">
-              <p className="textuppercase"> my simulations</p>
+              <p className="textuppercase"> my connectors</p>
             </div>
           </div>
         </div>

@@ -104,20 +104,24 @@ class Create extends Component {
     });
   }
   handleRedirect = () => {
+    localStorage.getItem("isLogin") === "true"
+      ? this.props.history.push("/adopt")
+      : this.props.history.push("/register");
+
     if (localStorage.getItem("isLogin") === "true") {
-    callWithMethodAndData(
-      CableConnection,
-      "POST",
-      this.state.CableConnector
-    ).then((result) => {
-      let resJson = result;
-      if (resJson.status === "Success") {
-        console.log("Success", resJson);
-      } else {
-        console.log("Error while adding create data");
-      }
-      this.props.history.push("/adopt");
-    });
+      callWithMethodAndData(
+        CableConnection,
+        "POST",
+        this.state.CableConnector
+      ).then((result) => {
+        let resJson = result;
+        if (resJson.status === "Success") {
+          console.log("Success", resJson);
+        } else {
+          console.log("Error while adding create data");
+        }
+        this.props.history.push("/adopt");
+      });
     } else {
       this.props.history.push("/register");
     }
@@ -140,7 +144,7 @@ class Create extends Component {
           <div className="text">
             <h2>Create your modular connector</h2>
             {console.log(localStorage.getItem("token"))}
-                        <p>
+            <p>
               Select your cable contact and add it to your module. You can alter
               the cable contact in positions and rows.
             </p>
