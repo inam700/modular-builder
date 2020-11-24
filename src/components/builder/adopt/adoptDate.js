@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import Calendar from "react-calendar";
-import "react-calendar/dist/Calendar.css";
+import 'react-calendar/dist/Calendar.css'
 import "./adopt.css";
 class AdoptDate extends Component {
   state = {
@@ -32,7 +32,14 @@ class AdoptDate extends Component {
             We will get back to you as soon as possible and validate your
             desired date.
           </p>
-          <Calendar onChange={this.handleStartDateChange} selectRange={true} />
+          <Calendar onChange={this.handleStartDateChange} selectRange={true} 
+          
+          nextLabel = {""}
+          next2Label = {""}
+          prev2Label = {""}
+          prevLabel  = {""}
+          
+          tileClassName = {['c1']} />
           <p>{this.state.startDate.toString()}</p>
 
           {/* <div className="pick-date">

@@ -1,0 +1,231 @@
+.mycontainer
+{
+  width: 95%;
+  margin-left: 4%;
+}
+.dev2modeldiv {
+    width: 100%;
+    height: 160px;
+    margin-bottom: 12px;
+  }
+.myfontfamily
+{
+  font-family: A_light;
+  margin-bottom: 15px;
+}
+  .overviewheadings{
+    /*border: 2px solid #adacac !important;*/
+    height: 45px;
+    width: 93%;
+    background-color: #F7F7F7 !important;
+    border:none !important;
+    padding-top: 15px;
+    text-align: center;
+    color: #2A659C;
+
+  }
+  .carddesign
+  {
+    padding-top: 10px;    
+    /*height: 200px;*/
+    height: min-content;
+    background-color: #F7F7F7 !important;
+    border:none !important;
+  }
+  .checkboxalignment
+  {
+    align-self: flex-end !important;
+  }
+  /*following is used at profilecard.js to make user card */
+  .dev2card 
+  {
+    width: 260px;
+  }
+/*following is used in overview.js and myprojects to set width of simulations and folder cards*/
+/*.simulation {
+    border: 2px solid #adacac !important;*/
+  /*  width: 260px;
+  }*/
+  
+  .userCard img {
+    width: 90px;
+    height: 90px;
+    margin: 8px 0 0 0;
+    border-radius: 50%;
+    border: 2px solid #2A659C;
+    object-fit: cover;
+  }
+
+  .simulationcard img {
+    width: 130px;
+    height: 70px;
+    margin: 9px 0 0 0;
+    object-fit: cover;
+  }
+  .userCardBottom
+  {
+    margin-top: 25px;
+    color: #0266A1; 
+  }
+  .simulationCardBottom
+  {
+    margin-top: 4px;
+    color: #0266A1;
+    text-align: left; 
+    margin-left: 20px;
+  }
+  .textuppercase
+  {
+    text-transform: uppercase;
+    font-size: 0.8rem !important;
+  }
+  .profilebtns
+  {
+    margin-top: 40px;
+    background-color: #2A659C !important;
+    width: 140px;
+    height: 30px;
+    border-radius: 0 !important;
+    font-size: 10px !important;
+    padding-top: 8px !important;
+    }
+  .progressbar{
+    margin-top: 10px;
+    max-width: 95%;
+    height: 20px !important;
+    font-size: 9px !important;
+    background-color: #F7F7F7 !important;
+    padding-left: 20px;
+    padding-right: 5px;
+  }
+  .progressbar1
+  {
+    background-color: #e88302 !important;
+    border-radius: none;
+    text-align: left !important;
+  }
+  .progressbar2
+  {
+    background-color: #fae6c5 !important;
+    color: #0266A1 !important;
+    border-radius: none;
+    text-align: right !important;
+  }
+  .myprofilecarddesign
+  {
+    height: 20px;
+    width: 100%;
+    background-color: #EDEDEE !important;
+    border:none !important;
+    margin-bottom: 12px;
+    color: #0266A1;
+    border-radius: 0 !important;
+    font-size: 0.8rem;
+   
+  }
+  .colorcodeinputs
+  {
+    height: 25px !important;
+  }
+  .passwordinputfield
+  {
+    text-align: center;
+  }
+  .myprofilecarddesign:focus
+  {
+    outline: none;
+  }
+  .myprofilecarddesign .Card .profilebtns{
+    background-color: aqua;
+  }
+  .myporfilecard {
+    /*border: 2px solid #adacac !important;*/
+    width: 300px;
+    border: none !important;
+    
+  }
+  .checkboxsize
+  {
+    margin-top: 10px;
+    height: 23px;
+    width: 23px;
+  }
+  input[type="checkbox"]:before {
+    background-color: aqua;
+  }
+  .colorcarddesign
+  {
+    height: 40px;
+  }
+  ::placeholder {
+    color: #2A649B;
+    opacity: 1; /* Firefox */
+  }
+  .colorinputs
+  {
+    padding-top: 3px;
+    color: #2A649B;
+    border: none;
+    text-align: center;
+    background-color: #EDEDEE;
+  }
+  .colorinputs:focus
+  {
+    outline: none;
+  }
+  
+  .addprdctMdl div
+{
+  border-radius: 10px;
+  border: none;
+}
+.sidenav {
+  height: 100%;
+  width: 35px;
+  position: absolute;
+  z-index: 1;
+  top: 0;
+  right: 0;
+  overflow-x: hidden;
+  padding-top: 260px;
+}
+.sidebarbtn
+{
+height: 35px;
+width: 35px;
+}
+.fileuploadbtn
+{
+  margin-top: 10px !important;
+  text-decoration: underline !important;
+  background: transparent !important;
+  border:none !important;
+  color: #0266A1 !important;  
+  margin: auto;
+}
+.devscroller
+{
+  overflow-y: scroll;
+  margin: 0%;
+  padding-left: 0% ;
+  height:400px;
+}
+.devscroller::-webkit-scrollbar {
+  width: 10px;
+}
+
+/* Track */
+.devscroller::-webkit-scrollbar-track {
+  box-shadow: inset 0 0 2px #e6e8e9; 
+  background-color: #e6e8e9;
+  border-radius: 0px;
+}
+ 
+/* Handle */
+.devscroller::-webkit-scrollbar-thumb {
+  background: #006da0; 
+  border-radius: 00px;
+}
+.devscroller::-webkit-scrollbar-thumb:hover {
+  background: #006da0; 
+}
