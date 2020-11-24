@@ -1,11 +1,22 @@
 import React, { Component } from "react";
-import { Link } from "react-router-dom";
+import { Link, withRouter } from "react-router-dom";
 import RangeSlider from "../../../utils/rangeSlider";
+import { callWithMethodAndData } from "../../../Services/ApiServices";
+import { ModularBuilder } from "../../../Services/ApiUrls";
 
 class WireSize extends Component {
   state = {
     btnActive: false,
     rangeWire: 0,
+    ModularConnector: {
+      FunctionalArea: +localStorage.getItem("FunctionalArea"),
+      ComponentName: localStorage.getItem("ComponentName"),
+      Voltage: +localStorage.getItem("Voltage"),
+      Current1: +localStorage.getItem("Current1"),
+      Current2: +localStorage.getItem("Current2"),
+      WireSize: +localStorage.getItem("WireSize"),
+      UserId: +localStorage.getItem("id"),
+    },
   };
   handleWireValue = (e) => {
     this.setState({ rangeWire: e.target.value });
@@ -35,10 +46,26 @@ class WireSize extends Component {
       this.setState({ rangeWire: increment });
     }
   };
-  handleChange=()=>{
+  handleRedirect = () => {
+    callWithMethodAndData(
+      ModularBuilder,
+      "POST",
+      this.state.ModularConnector
+    ).then((result) => {
+      let resJson = result;
+      if (resJson.status === "Success") {
+        console.log("Success", resJson);
+        localStorage.setItem("componentId", resJson.data.id);
+      } else {
+        console.log("Error while adding basics data");
+      }
+    });
+  };
+  handleChange = () => {
     localStorage.setItem("WireSize", this.state.rangeWire);
-
-  }
+    console.log(this.state.ModularConnector);
+    this.handleRedirect();
+  };
   render() {
     const ProgressLine = ({ done }) => (
       <div className="progress-line">
@@ -127,4 +154,4 @@ class WireSize extends Component {
   }
 }
 
-export default WireSize;
+export default withRouter(WireSize);

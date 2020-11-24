@@ -9,20 +9,29 @@ import "simplebar/src/simplebar.css";
 class SettingOne extends Component {
   state = {
     cards: [
-      { id: 1, name: "Name", imgURL: card_1 },
-      { id: 2, name: "Name", imgURL: card_2 },
-      { id: 3, name: "Name", imgURL: card_3 },
-      { id: 4, name: "Name", imgURL: card_4 },
-      { id: 5, name: "Name", imgURL: card_2 },
-      { id: 6, name: "Name", imgURL: card_1 },
+      { id: 1, name: "Name1", imgURL: card_1 },
+      { id: 2, name: "Name2", imgURL: card_2 },
+      { id: 3, name: "Name3", imgURL: card_3 },
+      { id: 4, name: "Name4", imgURL: card_4 },
+      { id: 5, name: "Name5", imgURL: card_2 },
+      { id: 6, name: "Name6", imgURL: card_1 },
     ],
+    checked: false,
   };
   render() {
+    const { checked } = this.state;
     return (
       <SimpleBarReact style={{ maxHeight: 330 }}>
         <div className="cards">
           {this.state.cards.map((item) => (
-            <div className="image-card" key={item.id}>
+            <div
+              className="image-card"
+              key={item.id}
+              onClick={() => {
+                localStorage.setItem("Name", item.name);
+                this.setState({ checked: !checked });
+              }}
+            >
               <img src={item.imgURL} alt="single-card" />
               <h5>{item.name}</h5>
             </div>

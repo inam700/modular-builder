@@ -5,7 +5,7 @@ class SettingTwo extends Component {
   state = {
     rangePositions: 0,
     rowsValue: "1",
-    offSetValue: "Yes",
+    offSetValue: "1",
   };
   handleRows = (e) => {
     this.setState({ rowsValue: e.target.value });
@@ -39,9 +39,14 @@ class SettingTwo extends Component {
   handleSubmit = () => {
     const { rangePositions, rowsValue, offSetValue } = this.state;
     this.props.handleModal();
-    localStorage.setItem("Positions", rangePositions);
+    localStorage.setItem("Position", rangePositions);
     localStorage.setItem("Rows", rowsValue);
-    localStorage.setItem("OffSet", offSetValue);
+    localStorage.setItem("Offset", offSetValue);
+
+    console.log(localStorage.getItem("Name"));
+    console.log(localStorage.getItem("Position"));
+    console.log(localStorage.getItem("Rows"));
+    console.log(localStorage.getItem("Offset"));
   };
   render() {
     return (
@@ -93,8 +98,8 @@ class SettingTwo extends Component {
             <label className="checkbox">
               <input
                 type="checkbox"
-                value="Yes"
-                checked={this.state.offSetValue === "Yes"}
+                value="1"
+                checked={this.state.offSetValue === "1"}
                 onChange={this.handleOffSet}
                 className="checkbox"
               />
@@ -104,8 +109,8 @@ class SettingTwo extends Component {
             <label className="checkbox">
               <input
                 type="checkbox"
-                value="No"
-                checked={this.state.offSetValue === "No"}
+                value="0"
+                checked={this.state.offSetValue === "0"}
                 onChange={this.handleOffSet}
                 className="checkbox"
               />

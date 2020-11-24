@@ -34,7 +34,6 @@ function RangeSlider({
         <input
           className="range-input"
           type={type}
-          name={name}
           min={min}
           max={max}
           value={value}

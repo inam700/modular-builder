@@ -67,7 +67,10 @@ export class login extends Component {
               },
               () => {
                 // After Login sucessfully
-                window.location = "/";
+
+                localStorage.getItem("CreatePage") === "true"
+                  ? (window.location = "/create")
+                  : (window.location = "/");
               }
             );
           } else {
