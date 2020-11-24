@@ -3,17 +3,24 @@ import RangeSlider from "../../../utils/rangeSlider";
 
 class Current extends Component {
   state = {
-    btnActive: false,
+    btnActive: true,
     rangeCurrentFirst: 0,
     rangeCurrentSecond: 0,
   };
-  handleCurrentValue = (e) => {
-    this.setState({ [e.target.name]: e.target.value });
-    if (this.state.rangeCurrentFirst) {
-      this.setState({ btnActive: true });
-    } else {
-      this.setState({ btnActive: false });
-    }
+  handleCurrent1 = (e) => {
+    this.setState({
+      rangeCurrentFirst: e.target.value,
+    });
+    // if (this.state.rangeCurrentFirst || this.state.rangeCurrentSecond) {
+    //   this.setState({ btnActive: true });
+    // } else {
+    //   this.setState({ btnActive: false });
+    // }
+  };
+  handleCurrent2 = (e) => {
+    this.setState({
+      rangeCurrentSecond: e.target.value,
+    });
   };
 
   handleNegativeRangeFirst = () => {
@@ -59,8 +66,8 @@ class Current extends Component {
   continue = (e) => {
     e.preventDefault();
     this.props.nextStep();
-    localStorage.setItem("rangeCurrentFirst", this.state.rangeCurrentFirst);
-    localStorage.setItem("rangeCurrentSecond", this.state.rangeCurrentSecond);
+    localStorage.setItem("Current1", this.state.rangeCurrentFirst);
+    localStorage.setItem("Current2", this.state.rangeCurrentSecond);
   };
   render() {
     const ProgressLine = ({ done }) => (
@@ -116,13 +123,12 @@ class Current extends Component {
               <RangeSlider
                 className="range-input"
                 type="range"
-                name="rangeCurrentFirst"
                 unit="A"
                 min="3"
                 max="215"
                 range={this.state.rangeCurrentFirst}
                 value={this.state.rangeCurrentFirst}
-                onChange={this.handleCurrentValue}
+                onChange={this.handleCurrent1}
                 onClickNegative={this.handleNegativeRangeFirst}
                 onClickPositve={this.handlePositiveRangeFirst}
               />
@@ -130,13 +136,12 @@ class Current extends Component {
               <RangeSlider
                 className="range-input"
                 type="range"
-                name="rangeCurrentSecond"
                 unit="A"
                 min="3"
                 max="180"
                 range={this.state.rangeCurrentSecond}
                 value={this.state.rangeCurrentSecond}
-                onChange={this.handleCurrentValue}
+                onChange={this.handleCurrent2}
                 onClickNegative={this.handleNegativeRangeSecond}
                 onClickPositve={this.handlePositiveRangeSecond}
               />

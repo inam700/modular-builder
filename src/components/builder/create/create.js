@@ -9,6 +9,8 @@ import LiteForceConnector from "../../../assets/img/lite-force.png";
 import OrdinaryConnector from "../../../assets/img/ordinary-connector.png";
 import { Link, withRouter } from "react-router-dom";
 import { callWithMethodAndData } from "../../../Services/ApiServices";
+import { CableConnection } from "../../../Services/ApiUrls";
+
 class Create extends Component {
   constructor(props) {
     super(props);
@@ -18,6 +20,13 @@ class Create extends Component {
       width: 176,
       openModal: false,
       openModalFinalize: false,
+      CableConnector: {
+        Name: "Name",
+        Position: +localStorage.getItem("Position"),
+        Rows: +localStorage.getItem("Rows"),
+        OffsetChambers: +localStorage.getItem("Offset"),
+        ModularConnecterId: +localStorage.getItem("componentId"),
+      },
     };
 
     this.handleZoomIn = this.handleZoomIn.bind(this);
@@ -55,13 +64,6 @@ class Create extends Component {
   componentDidMount = () => {
     this.initialHeight = this.imgRef.current.clientHeight;
     this.initialWidth = this.imgRef.current.clientWidth;
-    console.log(localStorage.getItem("FunctionalArea"));
-    console.log(localStorage.getItem("ComponentName"));
-    console.log(localStorage.getItem("Voltage"));
-    console.log(localStorage.getItem("rangeCurrentFirst"));
-    console.log(localStorage.getItem("rangeCurrentSecond"));
-    console.log(localStorage.getItem("WireSize"));
-    console.log(localStorage.getItem("id"));
   };
   handleZoomIn() {
     // Fetching current height and width
@@ -102,10 +104,25 @@ class Create extends Component {
     });
   }
   handleRedirect = () => {
-    localStorage.getItem("isLogin") === "true"
-      ? this.props.history.push("/adopt")
-      : this.props.history.push("/register");
-    localStorage
+    // if (localStorage.getItem("isLogin") === "true") {
+    callWithMethodAndData(
+      CableConnection,
+      "POST",
+      this.state.CableConnector
+    ).then((result) => {
+      let resJson = result;
+      if (resJson.status === "Success") {
+        console.log("Success", resJson);
+      } else {
+        console.log("Error while adding create data");
+      }
+      this.props.history.push("/adopt");
+    });
+    // } else {
+    //   this.props.history.push("/register");
+    // }
+    // localStorage.setItem("CreatePage", "true");
+    console.log(this.state.CableConnector);
   };
   renderExactComponent = () => {
     if (this.state.renderComponent === "SettingOne") {
@@ -122,7 +139,8 @@ class Create extends Component {
         <div className="create-container">
           <div className="text">
             <h2>Create your modular connector</h2>
-            <p>
+            {console.log(localStorage.getItem("token"))}
+                        <p>
               Select your cable contact and add it to your module. You can alter
               the cable contact in positions and rows.
             </p>
