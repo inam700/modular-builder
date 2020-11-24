@@ -105,7 +105,7 @@ class Create extends Component {
     localStorage.getItem("isLogin") === "true"
       ? this.props.history.push("/adopt")
       : this.props.history.push("/register");
-    localStorage
+    
   };
   renderExactComponent = () => {
     if (this.state.renderComponent === "SettingOne") {

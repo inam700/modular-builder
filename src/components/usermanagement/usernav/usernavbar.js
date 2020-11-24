@@ -38,9 +38,9 @@ export class usernavbar extends Component {
                             </li>
                             <li className="nav-item" onClick={this.Active} style={links[1]}>
                                 {this.props.setactive === "myprojects" ?
-                                    <Link to={"/myprojects"}  className="nav-link active" >my simulations</Link>
+                                    <Link to={"/myprojects"}  className="nav-link active" >my connectors</Link>
                                     :
-                                    <Link to={"/myprojects"}  className="nav-link" >my simulations</Link>
+                                    <Link to={"/myprojects"}  className="nav-link" >my connectors</Link>
                                 }
                             </li>
                             <li className="nav-item" onClick={this.Active} style={links[2]}>

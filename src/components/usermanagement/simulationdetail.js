@@ -45,17 +45,6 @@ class simulationdetail extends Component {
     })
     let method="GET"
     let type="simulations/getSimulation?id="+data.id;
-    callWithMethodAndData(type,method).then((result)=>{
-        let responsejson=result;
-        if(responsejson.status==="Success"){
-          console.log("series data", JSON.parse(responsejson.data.simulation.series));
-          console.log("series data for diagram", JSON.parse(responsejson.data.simulation.buttons));
-          this.state.simulationData = JSON.parse(responsejson.data.simulation.buttons);
-          let data = JSON.parse(responsejson.data.simulation.series).flat(1);
-          window.simulationGraph(data, this.state.xAxisValue, this.state.yAxisValue,this.state.graphType);
-         
-        }
-    })
     
   }
 
@@ -163,7 +152,7 @@ class simulationdetail extends Component {
         <div className="row">
           <div className="col-12 mt-5">
             <div className="overviewheadings">
-              <p className="textuppercase"> my simulations</p>
+              <p className="textuppercase"> my connectors</p>
             </div>
           </div>
         </div>

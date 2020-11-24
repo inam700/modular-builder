@@ -3,6 +3,7 @@ import Button from 'react-bootstrap/Button';
 import Card from 'react-bootstrap/Card';
 import './style.css'
 import DispalyPic from '../../../img/dp.jpg'
+import Dummy from '../../../img/dummyprofile.png'
 
 export class profilecard extends Component {
     state={
@@ -20,7 +21,7 @@ export class profilecard extends Component {
                         src = {DispalyPic}
                         alt="Image" />:
                         <img className="avater m-0 font-weight-bold"
-                        src={require("../../../img/dummyprofile.png")} 
+                        src={Dummy} 
                         alt="Image"/> 
                     }  
                     <div className='userCardBottom mt-4'>

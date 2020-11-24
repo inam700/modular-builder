@@ -20,6 +20,7 @@ export function callWithoutAuthToken(type, UserData) {
   });
 }
 
+
 export function callWithMethodAndData(type, method, UserData) {
   return new Promise((resolve, reject) => {
     var token = localStorage.getItem("token");
