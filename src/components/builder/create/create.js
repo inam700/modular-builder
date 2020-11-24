@@ -104,7 +104,7 @@ class Create extends Component {
     });
   }
   handleRedirect = () => {
-    // if (localStorage.getItem("isLogin") === "true") {
+    if (localStorage.getItem("isLogin") === "true") {
     callWithMethodAndData(
       CableConnection,
       "POST",
@@ -118,10 +118,10 @@ class Create extends Component {
       }
       this.props.history.push("/adopt");
     });
-    // } else {
-    //   this.props.history.push("/register");
-    // }
-    // localStorage.setItem("CreatePage", "true");
+    } else {
+      this.props.history.push("/register");
+    }
+    localStorage.setItem("CreatePage", "true");
     console.log(this.state.CableConnector);
   };
   renderExactComponent = () => {
