@@ -127,6 +127,7 @@ class Create extends Component {
     }
     localStorage.setItem("CreatePage", "true");
     console.log(this.state.CableConnector);
+    localStorage.setItem("activateButton", "false");
   };
   renderExactComponent = () => {
     if (this.state.renderComponent === "SettingOne") {
@@ -213,13 +214,24 @@ class Create extends Component {
               {this.renderExactComponent()}
             </div>
           </div>
-          <Link
-            className="button"
-            style={{ float: "right", marginRight: "-10px" }}
-            onClick={this.handleRedirect}
-          >
-            Finalize
-          </Link>
+          {localStorage.getItem("activateButton") === "true" ? (
+            <Link
+              className="button"
+              style={{ float: "right", marginRight: "-10px" }}
+              onClick={this.handleRedirect}
+            >
+              Finalize
+            </Link>
+          ) : (
+            <button
+              className="button button-disabled"
+              disabled
+              style={{ float: "right", marginRight: "-10px" }}
+            >
+              Finalize
+            </button>
+          )}
+
           <Modal
             show={this.state.openModal}
             onHide={this.closeModal}

@@ -10,67 +10,62 @@ class NavLinks extends Component {
   render() {
     return (
       <div>
-        <div className="nav-container">
-          <div className="text">
-            <p className="company-name">TE Modular Builder</p>
-            <span>TE Connectivity (TE)</span>
+        <div className="configuration-nav">
+          <div className="top">
+            <span>TE Modular Builder</span>
+            <p>TE CONNECTIVITY (TE)</p>
           </div>
-          <div className="navbar-links">
-            <Link
-              to="/"
-              className={
-                this.state.renderComponent === "Start"
-                  ? "nav-link-active"
-                  : "nav-link"
-              }
-              onClick={() => {
-                this.setState({ renderComponent: "Start" });
-              }}
+          <div className="container">
+            <ul
+              className="nav nav-tabs justify-content-center"
+              id="myTab"
+              role="tablist"
             >
-              1. Start
-            </Link>
-
-            <Link
-              to="/basics"
-              className={
-                this.state.renderComponent === "Basics"
-                  ? "nav-link-active"
-                  : "nav-link"
-              }
-              onClick={() => {
-                this.setState({ renderComponent: "Basics" });
-              }}
-            >
-              2. Basics
-            </Link>
-
-            <Link
-              to="/create"
-              className={
-                this.state.renderComponent === "Create"
-                  ? "nav-link-active"
-                  : "nav-link"
-              }
-              onClick={() => {
-                this.setState({ renderComponent: "Create" });
-              }}
-            >
-              3. Create
-            </Link>
-
-            <Link
-              to="/adopt"
-              className={
-                this.state.renderComponent === "Adopt"
-                  ? "nav-link-active"
-                  : "nav-link"
-              }
-              onClick={() => {
-                this.setState({ renderComponent: "Adopt" });
-              }}
-            >
-              4. Adopt
-            </Link>
+              <li className="nav-item" onClick={this.Active}>
+                {this.props.page === "Start" ? (
+                  <Link to={"/"} className="nav-link active">
+                    1. Start
+                  </Link>
+                ) : (
+                  <Link to={"/"} className="nav-link">
+                    1. Start
+                  </Link>
+                )}
+              </li>
+              <li className="nav-item" onClick={this.Active}>
+                {this.props.page === "Basics" ? (
+                  <Link to={"/basics"} className="nav-link active">
+                    2. Basics
+                  </Link>
+                ) : (
+                  <Link to={"/basics"} className="nav-link">
+                    2. Basics
+                  </Link>
+                )}
+              </li>
+              <li className="nav-item" onClick={this.Active}>
+                {this.props.page === "Create" ? (
+                  <Link to={"/create"} className="nav-link active">
+                    3. Create
+                  </Link>
+                ) : (
+                  <Link to={"/create"} className="nav-link">
+                    3. Create
+                  </Link>
+                )}
+              </li>
+              <li className="nav-item" onClick={this.Active}>
+                {this.props.page === "Adopt" ? (
+                  <Link to={"/adopt"} className="nav-link active">
+                    4. Adopt
+                  </Link>
+                ) : (
+                  <Link to={"/adopt"} className="nav-link">
+                    4. Adopt
+                  </Link>
+                )}
+              </li>
+            </ul>
           </div>
         </div>
       </div>

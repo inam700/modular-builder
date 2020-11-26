@@ -11,20 +11,23 @@ class Start extends Component {
   valid(item, type) {
     let datavalue = item.target.value;
     console.log(datavalue);
-    this.setState({
-      btnActive: false,
-    });
+
+    if (this.state.name && this.state.dropDownValue) {
+      this.setState({
+        btnActive: false,
+      });
+    }
     if (type === "name") {
       this.setState({
         name: datavalue,
       });
     }
   }
-  handleSubmit=()=>{
-    const {dropDownValue,name}=this.state;
-    localStorage.setItem("FunctionalArea",dropDownValue);
-    localStorage.setItem("ComponentName",name);
-  }
+  handleSubmit = () => {
+    const { dropDownValue, name } = this.state;
+    localStorage.setItem("FunctionalArea", dropDownValue);
+    localStorage.setItem("ComponentName", name);
+  };
 
   render() {
     return (
@@ -41,10 +44,7 @@ class Start extends Component {
             At first, please select the functional area from the drop down list
             below.
           </h5>
-          <div
-            className="input-group mb-3"
-            style={{ width: "300px", marginLeft: "-40px" }}
-          >
+          {/* <div className="input-group mb-3" style={{ width: "300px" }}>
             <select
               value={this.state.dropDownValue}
               onChange={(e) => {
@@ -61,12 +61,29 @@ class Start extends Component {
               <option value="3">Production Build</option>
             </select>
             {console.log(this.state.dropDownValue)}
+          </div> */}
+          <div className="custom-dropdown">
+            <select
+              value={this.state.dropDownValue}
+              onChange={(e) => {
+                this.setState({ dropDownValue: e.target.value });
+              }}
+            >
+              <option defaultValue value="1">
+                Functional Area
+              </option>
+              <option value="2">Second</option>
+              <option value="3">Third</option>
+              <option value="4">Fourth</option>
+            </select>
+            <span className="custom-dropdown-arrow"></span>
           </div>
+          {console.log(this.state.dropDownValue)}
           <h4>Name Your Component:</h4>
           <input
             type="text"
             onChange={(item) => this.valid(item, "name")}
-            placeholder="Enter Component Name"
+            placeholder="Name..."
           />
           {this.state.btnActive === false ? (
             <Link className="button" to="/basics" onClick={this.handleSubmit}>

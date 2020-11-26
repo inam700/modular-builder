@@ -1,6 +1,7 @@
 import React, { Component } from "react";
-import RangeSlider from "../../../utils/rangeSlider";
-
+import RangeSlider from "react-bootstrap-range-slider";
+import "react-bootstrap-range-slider/dist/react-bootstrap-range-slider.css";
+import "../../../utils/sliderTemp.css";
 class SettingTwo extends Component {
   state = {
     rangePositions: 0,
@@ -13,7 +14,7 @@ class SettingTwo extends Component {
   handleOffSet = (e) => {
     this.setState({ offSetValue: e.target.value });
   };
-  handleRangePositions = (e) => {
+  handleChange = (e) => {
     this.setState({ rangePositions: e.target.value });
   };
   handleNegativeRange = () => {
@@ -22,7 +23,7 @@ class SettingTwo extends Component {
     if (this.state.rangePositions === minValue) {
       return null;
     } else {
-      let decrement = parseInt(this.state.rangePositions) - 5;
+      let decrement = parseInt(this.state.rangePositions) - 1;
       this.setState({ rangePositions: decrement });
     }
   };
@@ -32,7 +33,7 @@ class SettingTwo extends Component {
     if (this.state.rangePositions === maxValue) {
       return null;
     } else {
-      let increment = parseInt(this.state.rangePositions) + 5;
+      let increment = parseInt(this.state.rangePositions) + 1;
       this.setState({ rangePositions: increment });
     }
   };
@@ -42,6 +43,7 @@ class SettingTwo extends Component {
     localStorage.setItem("Position", rangePositions);
     localStorage.setItem("Rows", rowsValue);
     localStorage.setItem("Offset", offSetValue);
+    localStorage.setItem("activateButton", "true");
 
     console.log(localStorage.getItem("Name"));
     console.log(localStorage.getItem("Position"));
@@ -53,17 +55,29 @@ class SettingTwo extends Component {
       <div className="settings-second">
         <div>
           <p style={{ margin: "20px" }}>Positions</p>
-          <RangeSlider
-            type="range"
-            min="1"
-            max="20"
-            value={this.state.rangePositions}
-            onChange={this.handleRangePositions}
-            range={this.state.rangePositions}
-            name="rangePositions"
-            onClickNegative={this.handleNegativeRange}
-            onClickPositve={this.handlePositiveRange}
-          />
+          <div className="range-slider">
+            <button
+              className="range-move-btn"
+              onClick={this.handleNegativeRange}
+            >
+              <span>-</span> <br /> 0
+            </button>
+            <RangeSlider
+              className="range-input"
+              value={this.state.rangePositions}
+              onChange={this.handleChange}
+              tooltipPlacement="top"
+              tooltip="on"
+              min={0}
+              max={10}
+            />
+            <button
+              className="range-move-btn ml-custom"
+              onClick={this.handlePositiveRange}
+            >
+              <span>+</span> <br /> 10
+            </button>
+          </div>
         </div>
         <div>
           <p style={{ margin: "20px" }}>Rows</p>

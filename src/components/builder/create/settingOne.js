@@ -8,6 +8,7 @@ import "simplebar/src/simplebar.css";
 
 class SettingOne extends Component {
   state = {
+    PicId: "",
     cards: [
       { id: 1, name: "Name1", imgURL: card_1 },
       { id: 2, name: "Name2", imgURL: card_2 },
@@ -16,24 +17,38 @@ class SettingOne extends Component {
       { id: 5, name: "Name5", imgURL: card_2 },
       { id: 6, name: "Name6", imgURL: card_1 },
     ],
-    checked: false,
+  };
+  handleChecked = (id) => {
+    this.setState({
+      PicId: +id,
+    });
   };
   render() {
-    const { checked } = this.state;
     return (
       <SimpleBarReact style={{ maxHeight: 330 }}>
         <div className="cards">
           {this.state.cards.map((item) => (
             <div
-              className="image-card"
               key={item.id}
+              className={
+                item.id === this.state.PicId
+                  ? "image-card selected"
+                  : "image-card"
+              }
               onClick={() => {
                 localStorage.setItem("Name", item.name);
-                this.setState({ checked: !checked });
+                this.handleChecked(item.id);
               }}
             >
               <img src={item.imgURL} alt="single-card" />
-              <h5>{item.name}</h5>
+              <h5
+                style={{
+                  fontSize: "15px",
+                  fontWeight: "500",
+                }}
+              >
+                {item.name}
+              </h5>
             </div>
           ))}
         </div>

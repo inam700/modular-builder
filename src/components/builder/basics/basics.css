@@ -17,8 +17,8 @@
 }
 .basic .content {
   display: grid;
-  grid-template-columns: 40% 50%;
-  gap: 12px;
+  grid-template-columns: 40% 60%;
+  gap: 0px;
 }
 
 .basic .content .vertical-nav-links {
@@ -27,13 +27,16 @@
   background: var(--bg-primary);
   padding-top: 32px;
   width: 255px;
-  height: 400px;
+  height: 450px;
+  margin-left: -37px;
 }
 
 .basic .content .basic-data {
   background: var(--bg-primary);
-  width: 375px;
-  height: 400px;
+  width: 446px;
+  height: 450px;
+  color: #676767;
+  margin-left: -23px;
 }
 
 .basic .content .basic-data .text {
@@ -44,7 +47,7 @@
   width: 90%;
 }
 .basic .content .basic-data h2 {
-  font-weight: bold;
+  font-weight: 600;
   text-transform: uppercase;
 }
 .basic .content .basic-data h3 {

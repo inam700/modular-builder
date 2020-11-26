@@ -16,7 +16,7 @@ body {
 }
 body {
   color: #000000;
-  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif ;
 }
 
 a {
@@ -26,6 +26,9 @@ a {
 }
 button {
   outline: none !important;
+}
+input::placeholder {
+  color: #000000 !important;
 }
 
 /* /////////UTILITIES////////// */
@@ -48,9 +51,8 @@ button {
   background-color: #d8d8d8;
   position: relative;
   margin-bottom: 10px;
-  margin-left: 2px;
   height: 15px;
-  width: 60%;
+  width: 67%;
 }
 .progress-done {
   background: #e88302;
@@ -75,12 +77,13 @@ button {
 .link-btn-light {
   background: none;
   border: none;
-  color: #000000 !important;
+  color: #676767 !important;
   font-weight: 400;
   margin: 0 0 15px -80px;
   text-align: center;
   text-transform: uppercase;
   font-size: 15px;
+  opacity: 0.8;
 }
 .link-btn-success {
   background: none;
@@ -91,6 +94,7 @@ button {
   text-align: center;
   text-transform: uppercase;
   font-size: 15px;
+  opacity: 0.7;
 }
 .checkbox {
   display: flex;
@@ -118,11 +122,11 @@ button {
   position: absolute;
   top: 0px;
   left: 0px;
-  height: 24px;
-  width: 24px;
+  height: 27px;
+  width: 27px;
   background-color: transparent;
-  border-radius: 5px;
-  border: 2px solid #000000;
+  border-radius: 4px;
+  border: 1px solid #000000;
 }
 .checkbox input:checked ~ .checkbox-custom {
   background-color: transparent;
@@ -131,7 +135,7 @@ button {
   -ms-transform: rotate(0deg) scale(1);
   transform: rotate(0deg) scale(1);
   opacity: 1;
-  border: 2px solid #000000;
+  border: 1px solid #000000;
 }
 
 .checkbox .checkbox-custom::after {
@@ -155,12 +159,12 @@ button {
   -ms-transform: rotate(45deg) scale(1);
   transform: rotate(45deg) scale(1);
   opacity: 1;
-  left: 8px;
-  top: 3px;
+  left: 9px;
+  top: 4px;
   width: 6px;
-  height: 12px;
+  height: 15px;
   border: solid #000000;
-  border-width: 0 2px 2px 0;
+  border-width: 0 1px 1px 0;
   background-color: transparent;
   border-radius: 0;
 }
@@ -177,7 +181,7 @@ button {
   border: none;
   outline: none;
   background: none;
-  margin-top: 30px;
+  margin-top: 33px;
   padding: 0;
   font-size: 13px;
   color: var(--primary-color);

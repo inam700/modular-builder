@@ -1,27 +1,60 @@
 import React, { Component } from "react";
-import Calendar from "react-calendar";
-import 'react-calendar/dist/Calendar.css'
+import DayPicker from "react-day-picker";
+import { DateUtils } from "react-day-picker";
+import "react-day-picker/lib/style.css";
 import "./adopt.css";
+import { callWithMethodAndData } from "../../../Services/ApiServices";
+import { AddDates } from "../../../Services/ApiUrls";
 class AdoptDate extends Component {
-  state = {
-    startDate: "",
-    endDate: "",
-  };
-  continue = (e) => {
+  constructor(props) {
+    super(props);
+    this.handleDayClick = this.handleDayClick.bind(this);
+    this.state = {
+      selectedDays: [],
+      AddDate: {
+        StartedDates: localStorage.getItem("StartedDates"),
+        ModularConnecterId: +localStorage.getItem("componentId"),
+      },
+    };
+  }
+  handleRedirect = (e) => {
     e.preventDefault();
     this.props.nextStep();
+    localStorage.setItem("StartedDates", this.state.selectedDays);
+    callWithMethodAndData(AddDates, "POST", this.state.AddDate).then(
+      (result) => {
+        let resJson = result;
+        if (resJson.status === "Success") {
+          console.log("Success", resJson);
+        } else {
+          console.log("Error while adding Dates");
+        }
+      }
+    );
   };
   back = (e) => {
     e.preventDefault();
     this.props.prevStep();
   };
-  handleStartDateChange = (date) => {
-    this.setState({ startDate: date });
-  };
-  handleEndDateChange = (date) => {
-    this.setState({ endDate: date });
-  };
+  handleDayClick(day, { selected }) {
+    const { selectedDays } = this.state;
+    if (selected) {
+      const selectedIndex = selectedDays.findIndex((selectedDay) =>
+        DateUtils.isSameDay(selectedDay, day.toLocaleDateString())
+      );
+      selectedDays.splice(selectedIndex, 1);
+    } else if (selectedDays.length < 3) {
+      selectedDays.push(day);
+    } else if (selectedDays.length === 3) {
+      selectedDays.shift();
+      selectedDays.push(day);
+    }
+
+    this.setState({ selectedDays });
+  }
+
   render() {
+    const today = new Date();
     return (
       <div className="container">
         <div className="adopt">
@@ -32,24 +65,18 @@ class AdoptDate extends Component {
             We will get back to you as soon as possible and validate your
             desired date.
           </p>
-          <Calendar onChange={this.handleStartDateChange} selectRange={true} 
-          
-          nextLabel = {""}
-          next2Label = {""}
-          prev2Label = {""}
-          prevLabel  = {""}
-          
-          tileClassName = {['c1']} />
-          <p>{this.state.startDate.toString()}</p>
+          <DayPicker
+            className={"class"}
+            numberOfMonths={2}
+            disabledDays={{ before: today }}
+            selectedDays={this.state.selectedDays}
+            onDayClick={this.handleDayClick}
+          />
 
-          {/* <div className="pick-date">
-            <Calendar onChange={this.handleEndDateChange} />
-          </div>
-          <p>{this.state.endDate.toString()}</p> */}
           <button
             className="button"
-            style={{ float: "right" }}
-            onClick={this.continue}
+            style={{ marginLeft: "15.5rem" }}
+            onClick={this.handleRedirect}
           >
             Send
           </button>

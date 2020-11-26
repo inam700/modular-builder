@@ -36,45 +36,52 @@
   justify-content: space-evenly;
 }
 
-.c1{
+.c1 {
   border-radius: 50%;
-  
 }
 .adopt .react-calendar {
-  
   background: #f5f5ef;
   border: none;
   line-height: 0.5em;
 }
-/*
-.adopt .react-calendar__month-view__days__day--weekend {
-  color: #000000;
+.class
+  .DayPicker-Day--selected:not(.DayPicker-Day--disabled):not(.DayPicker-Day--outside):hover {
+  background-color: #e88302;
+  outline: none;
 }
-.adopt .react-calendar__month-view__days__day--neighboringMonth {
-  color: #757575 !important;
+.class
+  .DayPicker-Day--selected:not(.DayPicker-Day--disabled):not(.DayPicker-Day--outside) {
+  position: relative;
+  background-color: #e88302;
+  color: #f0f8ff;
+  outline: none;
 }
-.adopt .react-calendar__tile--active {
-  background: #006edc;
-  border-radius: 50%;
-  color: white;
+.class .DayPicker-Day {
+  outline: none;
 }
-.react-calendar__month-view__weekdays {
-  font-weight: lighter !important;
+.class .DayPicker-NavButton--prev {
+  outline: none !important;
+  margin-right: 32rem;
+  margin-top: 8rem;
+  size: 20px;
+  background-image: url("../../../assets/img/prev.png");
 }
-.adopt .react-calendar__month-view__weekdays__weekday {
-  text-decoration: underline !important;
+.class .DayPicker-NavButton--next {
+  outline: none !important;
+  margin-top: 8rem;
+  margin-left: 12rem;
+  margin-right: -3rem;
+  background-image: url("../../../assets/img/next.png");
 }
-.react-calendar__month-view__weekdays__weekday {
-  padding: 1em !important;
+
+.DayPicker-Month {
+  background: #F7F7F7;
 }
-.react-calendar__month-view__weekNumbers .react-calendar__tile {
-  padding: 1em 1em !important;
+.DayPicker-Caption {
+  background: #F7F7F7;
+  margin-bottom: 0 !important;
+
 }
-.react-calendar__year-view .react-calendar__tile,
-.react-calendar__decade-view .react-calendar__tile,
-.react-calendar__century-view .react-calendar__tile {
-  padding: 1em 1em !important;
+.DayPicker-Caption.div{
+  font-weight: bold !important;
 }
-.react-calendar__tile {
-  padding: 1em 1em !important;
-} */

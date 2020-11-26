@@ -2,16 +2,16 @@ import React, { Component } from "react";
 
 class Voltage extends Component {
   state = {
-    voltage: "",
+    voltage: 0,
     btnActive: false,
   };
   handleVoltageValue = (e) => {
     this.setState({ voltage: e.target.value });
-    if (this.state.voltage === "12" || "48") {
-      this.setState({ btnActive: true });
-    } else {
-      this.setState({ btnActive: false });
-    }
+    // if (this.state.voltage === "12" || "48") {
+    //   this.setState({ btnActive: true });
+    // } else {
+    //   this.setState({ btnActive: false });
+    // }
   };
   continue = (e) => {
     e.preventDefault();
@@ -40,9 +40,7 @@ class Voltage extends Component {
           <div className="content">
             <div className="vertical-nav-links">
               <button
-                className={
-                  this.props.step === 1 ? "link-btn" : "link-btn-light"
-                }
+                className={this.state.voltage ? "link-btn-success" : "link-btn"}
               >
                 Voltage
               </button>
@@ -50,6 +48,7 @@ class Voltage extends Component {
                 className={
                   this.props.step !== 1 ? "link-btn" : "link-btn-light"
                 }
+                onClick={this.continue}
               >
                 Current
               </button>
@@ -81,7 +80,8 @@ class Voltage extends Component {
                   <span className="checkbox-custom" />
                   <label>12V</label>
                 </label>
-                <label className="checkbox">
+                
+                <label className="checkbox" style={{marginTop:"15px"}}>
                   <input
                     type="checkbox"
                     value="48"
@@ -95,7 +95,7 @@ class Voltage extends Component {
               </form>
             </div>
           </div>
-          {this.state.btnActive ? (
+          {/* {this.state.btnActive ? (
             <button
               className="button"
               style={{ textAlign: "center" }}
@@ -103,11 +103,11 @@ class Voltage extends Component {
             >
               Continue
             </button>
-          ) : (
-            <button disabled={true} className=" button button-disabled">
-              Continue
-            </button>
-          )}
+          ) : ( */}
+          <button disabled={true} className=" button button-disabled">
+            Continue
+          </button>
+          {/* )} */}
         </div>
       </div>
     );

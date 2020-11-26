@@ -1,9 +1,10 @@
 import React, { Component } from "react";
-import RangeSlider from "../../../utils/rangeSlider";
-
+import RangeSlider from "react-bootstrap-range-slider";
+import "react-bootstrap-range-slider/dist/react-bootstrap-range-slider.css";
+import "../../../utils/sliderTemp.css";
 class Current extends Component {
   state = {
-    btnActive: true,
+    btnActive: false,
     rangeCurrentFirst: 0,
     rangeCurrentSecond: 0,
   };
@@ -101,7 +102,9 @@ class Current extends Component {
               </button>
               <button
                 className={
-                  this.props.step === 2 ? "link-btn" : "link-btn-light"
+                  this.state.rangeCurrentFirst || this.state.rangeCurrentSecond
+                    ? "link-btn-success"
+                    : "link-btn"
                 }
               >
                 Current
@@ -110,6 +113,7 @@ class Current extends Component {
                 className={
                   this.props.step !== 2 ? "link-btn" : "link-btn-light"
                 }
+                onClick={this.continue}
               >
                 Wire-Size
               </button>
@@ -119,32 +123,54 @@ class Current extends Component {
                 <h2>Current</h2>
                 <p>Max. Current (A) at 23°C / 80°C free in air</p>
               </div>
-              <h3>23°C</h3>
-              <RangeSlider
-                className="range-input"
-                type="range"
-                unit="A"
-                min="3"
-                max="215"
-                range={this.state.rangeCurrentFirst}
-                value={this.state.rangeCurrentFirst}
-                onChange={this.handleCurrent1}
-                onClickNegative={this.handleNegativeRangeFirst}
-                onClickPositve={this.handlePositiveRangeFirst}
-              />
-              <h3 style={{ marginTop: "60px" }}>80°C</h3>
-              <RangeSlider
-                className="range-input"
-                type="range"
-                unit="A"
-                min="3"
-                max="180"
-                range={this.state.rangeCurrentSecond}
-                value={this.state.rangeCurrentSecond}
-                onChange={this.handleCurrent2}
-                onClickNegative={this.handleNegativeRangeSecond}
-                onClickPositve={this.handlePositiveRangeSecond}
-              />
+              <h3 style={{ marginBottom: "20px" }}>23°C</h3>
+              <div className="range-slider">
+                <button
+                  className="range-move-btn"
+                  onClick={this.handleNegativeRangeFirst}
+                >
+                  <span>-</span> <br /> 3A
+                </button>
+                <RangeSlider
+                  className="range-input"
+                  value={this.state.rangeCurrentFirst}
+                  onChange={this.handleCurrent1}
+                  tooltipPlacement="top"
+                  tooltip="on"
+                  min={3}
+                  max={215}
+                />
+                <button
+                  className="range-move-btn ml-custom"
+                  onClick={this.handlePositiveRangeFirst}
+                >
+                  <span>+</span> <br /> 215A
+                </button>
+              </div>
+              <h3 style={{ marginTop: "60px",marginBottom:"25px" }}>80°C</h3>
+              <div className="range-slider">
+                <button
+                  className="range-move-btn"
+                  onClick={this.handleNegativeRangeSecond}
+                >
+                  <span>-</span> <br /> 3A
+                </button>
+                <RangeSlider
+                  className="range-input"
+                  value={this.state.rangeCurrentSecond}
+                  onChange={this.handleCurrent2}
+                  tooltipPlacement="top"
+                  tooltip="on"
+                  min={3}
+                  max={180}
+                />
+                <button
+                  className="range-move-btn ml-custom"
+                  onClick={this.handlePositiveRangeSecond}
+                >
+                  <span>+</span> <br /> 180A
+                </button>
+              </div>
             </div>
           </div>
           {this.state.btnActive ? (

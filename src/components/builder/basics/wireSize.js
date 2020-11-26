@@ -1,13 +1,14 @@
 import React, { Component } from "react";
 import { Link, withRouter } from "react-router-dom";
-import RangeSlider from "../../../utils/rangeSlider";
 import { callWithMethodAndData } from "../../../Services/ApiServices";
 import { ModularBuilder } from "../../../Services/ApiUrls";
-
+import RangeSlider from "react-bootstrap-range-slider";
+import "react-bootstrap-range-slider/dist/react-bootstrap-range-slider.css";
+import '../../../utils/sliderTemp.css';
 class WireSize extends Component {
   state = {
     btnActive: false,
-    rangeWire: 0,
+    rangeWire: 14,
     ModularConnector: {
       FunctionalArea: +localStorage.getItem("FunctionalArea"),
       ComponentName: localStorage.getItem("ComponentName"),
@@ -105,7 +106,7 @@ class WireSize extends Component {
               </button>
               <button
                 className={
-                  this.props.step === 3 ? "link-btn" : "link-btn-light"
+                  this.state.rangeWire ? "link-btn-success" : "link-btn"
                 }
               >
                 Wire-Size
@@ -119,19 +120,29 @@ class WireSize extends Component {
                   Please select the wire size of your biggest cross-section.
                 </p>
               </div>
-              <RangeSlider
-                className="range-input"
-                type="range"
-                unit="mm²"
-                name="rangeWire"
-                min="13"
-                max="35"
-                range={this.state.rangeWire}
-                value={this.state.rangeWire}
-                onChange={this.handleWireValue}
-                onClickNegative={this.handleNegativeRange}
-                onClickPositve={this.handlePositiveRange}
-              />
+              <div className="range-slider">
+                <button
+                  className="range-move-btn"
+                  onClick={this.handleNegativeRange}
+                >
+                  <span>-</span> <br /> 0,13mm²
+                </button>
+                <RangeSlider
+                  className="range-input"
+                  value={this.state.rangeWire}
+                  onChange={this.handleWireValue}
+                  tooltipPlacement="top"
+                  tooltip="on"
+                  min={13}
+                  max={35}
+                />
+                <button
+                  className="range-move-btn ml-custom"
+                  onClick={this.handlePositiveRange}
+                >
+                  <span>+</span> <br /> 35mm²
+                </button>
+              </div>
             </div>
           </div>
           {this.state.btnActive ? (

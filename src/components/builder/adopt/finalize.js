@@ -5,6 +5,7 @@ class Finalize extends Component {
   continue = (e) => {
     e.preventDefault();
     this.props.nextStep();
+    console.log(localStorage.getItem("StartedDates"));
   };
   render() {
     return (
