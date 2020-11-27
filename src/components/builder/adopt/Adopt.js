@@ -22,12 +22,12 @@ class Adopt extends Component {
     const { step } = this.state;
     switch (step) {
       case 1:
-        return <AdoptDate nextStep={this.nextStep} />;
+        return <AdoptContact nextStep={this.nextStep} />;
 
       case 2:
-        return <Finalize nextStep={this.nextStep} />;
+        return <AdoptDate nextStep={this.nextStep} />;
       case 3:
-        return <AdoptContact />;
+        return <Finalize nextStep={this.nextStep} />;
 
       default:
         break;

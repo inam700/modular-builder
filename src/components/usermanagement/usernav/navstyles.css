@@ -1,5 +1,6 @@
 .configuration-nav {
-  background-color: #F7F7F7;
+  background-color: #f7f7f7;
+  height: auto;
 }
 
 .configuration-nav .top {
@@ -10,7 +11,7 @@
 
 .configuration-nav .top span {
   font-family: A_book;
-  color: #0266A1;
+  color: #0266a1;
   font-size: 15px;
 }
 
@@ -27,15 +28,16 @@
   display: -ms-flexbox;
   display: flex;
   -webkit-box-pack: justify;
-      -ms-flex-pack: justify;
-          justify-content: space-between;
-  width: 89%;
+  -ms-flex-pack: justify;
+  width: 100%;
   margin-left: auto;
 }
-
+.configuration-nav ul li{
+  background: #fff !important;
+}
 .configuration-nav a {
   font-family: A_light;
-  color: #0266A1;
+  color: #0266a1;
   text-decoration: none;
   text-transform: uppercase;
   font-size: 14px;
@@ -46,29 +48,27 @@
   border-top-left-radius: 0px;
 }
 
-.configuration-nav .nav-tabs .nav-item.show .nav-link, .configuration-nav .nav-tabs .nav-link.active {
-  color: #0266A1 !important;
+.configuration-nav .nav-tabs .nav-item.show .nav-link,
+.configuration-nav .nav-tabs .nav-link.active {
+  color: #0266a1 !important;
 }
 
 .configuration-nav .nav-tabs .nav-link {
   border: none;
 }
 
-
-@media only screen and  (max-width:823px){
-
-  .configuration-header .main{
-      width: 100%;
+@media only screen and (max-width: 823px) {
+  .configuration-header .main {
+    width: 100%;
   }
-  .configuration-nav ul{
-      display: block;
-      width: 100%;
+  .configuration-nav ul {
+    display: block;
+    width: 100%;
   }
   .configuration-nav li {
-      text-align: center;
+    text-align: center;
   }
-  .configuration-nav{
-      padding-bottom: 10px;
+  .configuration-nav {
+    padding-bottom: 10px;
   }
-
 }

@@ -1,12 +1,9 @@
 import React, { Component } from "react";
+import { Link } from "react-router-dom";
 import calendarImg from "../../../assets/img/calendar-confirm.png";
 import "./adopt.css";
 class Finalize extends Component {
-  continue = (e) => {
-    e.preventDefault();
-    this.props.nextStep();
-    console.log(localStorage.getItem("StartedDates"));
-  };
+  
   render() {
     return (
       <div className="container">
@@ -23,9 +20,9 @@ class Finalize extends Component {
             src={calendarImg}
             alt="Calendar-Confirm"
           />
-          <button className="button" onClick={this.continue}>
+          <Link className="button" to="/">
             Start New Configuration
-          </button>
+          </Link>
         </div>
       </div>
     );

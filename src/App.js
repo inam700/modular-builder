@@ -17,7 +17,6 @@ import SimulationDetail from "./components/usermanagement/simulationdetail";
 import ProjectDetail from "./components/usermanagement/ProjectDetail";
 import Usermanagement_navbar from "./components/usermanagement/usernav/usernavbar";
 import ForgotPassword from "./components/login_register/forgotPassword";
-import sliderTemp from "./utils/sliderTemp";
 import Test from "./components/test";
 
 function App() {
@@ -31,7 +30,6 @@ function App() {
       <Route exact path="/login" component={Login} />
       <Route exact path="/register" component={Register} />
       <Route exact path="/forgotpassword" component={ForgotPassword} />
-      <Route exact path="/temp-slider" component={sliderTemp} />
 
       <Route path="/myprofile">
         <Usermanagement_navbar setactive={"myprofile"}></Usermanagement_navbar>
@@ -48,11 +46,11 @@ function App() {
         <Sidebar></Sidebar>
         <SimulationDetail></SimulationDetail>
       </Route>
-      <Route path="/Projectdetail">
+      {/* <Route path="/Projectdetail">
         <Usermanagement_navbar setactive={"myprojects"}></Usermanagement_navbar>
         <Sidebar></Sidebar>
         <ProjectDetail></ProjectDetail>
-      </Route>
+      </Route> */}
       <Route path="/CompareSimulations">
         <Usermanagement_navbar setactive={"myprojects"}></Usermanagement_navbar>
         <Sidebar></Sidebar>

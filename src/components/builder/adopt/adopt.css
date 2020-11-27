@@ -61,27 +61,29 @@
 }
 .class .DayPicker-NavButton--prev {
   outline: none !important;
-  margin-right: 32rem;
-  margin-top: 8rem;
+  margin-right: 40rem;
+  margin-top: 9rem;
   size: 20px;
   background-image: url("../../../assets/img/prev.png");
 }
 .class .DayPicker-NavButton--next {
   outline: none !important;
-  margin-top: 8rem;
+  margin-top: 9rem;
   margin-left: 12rem;
   margin-right: -3rem;
   background-image: url("../../../assets/img/next.png");
 }
 
 .DayPicker-Month {
-  background: #F7F7F7;
+  background: #f7f7f7;
 }
 .DayPicker-Caption {
-  background: #F7F7F7;
+  background: #f7f7f7;
   margin-bottom: 0 !important;
-
 }
-.DayPicker-Caption.div{
+.DayPicker-Caption div {
   font-weight: bold !important;
+}
+.DayPicker-Day {
+  padding: 0.8em !important;
 }

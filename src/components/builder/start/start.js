@@ -6,6 +6,58 @@ class Start extends Component {
     name: "",
     btnActive: true,
     dropDownValue: "",
+    functionalareaList: [
+      {
+        label: "Antenna",
+        options: [
+          "GPS",
+          "WiFi",
+          "Bluetooth",
+          "Cellular network",
+          "Radio/TV",
+          "Key",
+          "Others",
+        ],
+      },
+      {
+        label: "Camera",
+        options: [
+          "Rear view",
+          "ADAS",
+          "Lane assistant",
+          "Autonomous driving",
+          "Driver monitoring",
+          "Others",
+        ],
+      },
+      {
+        label: "Display",
+        options: [
+          "Dashboard driver information",
+          "Dashboard general purpose",
+          "Rear seat infotainment",
+          "Side mirror replacement",
+          "Central mirror replacement",
+          "Others",
+        ],
+      },
+      {
+        label: "Lidar",
+        options: [],
+      },
+      {
+        label: "Radar",
+        options: ["Long range", "Short range", "Others"],
+      },
+      {
+        label: "Bus/Network backbone/peering",
+        options: [],
+      },
+      {
+        label: "Others",
+        options: [],
+      },
+    ],
   };
 
   valid(item, type) {
@@ -22,10 +74,17 @@ class Start extends Component {
         name: datavalue,
       });
     }
+    if (type === "dropdown") {
+      this.setState({
+        dropDownValue: datavalue,
+      });
+    }
   }
   handleSubmit = () => {
-    const { dropDownValue, name } = this.state;
-    localStorage.setItem("FunctionalArea", dropDownValue);
+    const { name } = this.state;
+    const selectValue = this.state.dropDownValue;
+    console.log(selectValue);
+    localStorage.setItem("selectValue", selectValue);
     localStorage.setItem("ComponentName", name);
   };
 
@@ -44,41 +103,25 @@ class Start extends Component {
             At first, please select the functional area from the drop down list
             below.
           </h5>
-          {/* <div className="input-group mb-3" style={{ width: "300px" }}>
-            <select
-              value={this.state.dropDownValue}
-              onChange={(e) => {
-                this.setState({ dropDownValue: e.target.value });
-              }}
-              className="custom-select"
-              style={{ height: "45px" }}
-              id="inputGroupSelect01"
-            >
-              <option defaultValue value="1">
-                Functional Area
-              </option>
-              <option value="2">New Era of Games</option>
-              <option value="3">Production Build</option>
-            </select>
-            {console.log(this.state.dropDownValue)}
-          </div> */}
+
           <div className="custom-dropdown">
             <select
               value={this.state.dropDownValue}
-              onChange={(e) => {
-                this.setState({ dropDownValue: e.target.value });
-              }}
+              onChange={(item) => this.valid(item, "dropdown")}
             >
-              <option defaultValue value="1">
-                Functional Area
-              </option>
-              <option value="2">Second</option>
-              <option value="3">Third</option>
-              <option value="4">Fourth</option>
+              {this.state.functionalareaList.map((f) => {
+                return (
+                  <optgroup label={f.label}>
+                    {f.options.map((opt) => {
+                      return <option value={opt}> {opt} </option>;
+                    })}
+                  </optgroup>
+                );
+              })}
             </select>
             <span className="custom-dropdown-arrow"></span>
           </div>
-          {console.log(this.state.dropDownValue)}
+          <p>{this.state.dropDownValue}</p>
           <h4>Name Your Component:</h4>
           <input
             type="text"

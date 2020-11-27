@@ -4,13 +4,13 @@ import { callWithMethodAndData } from "../../../Services/ApiServices";
 import { ModularBuilder } from "../../../Services/ApiUrls";
 import RangeSlider from "react-bootstrap-range-slider";
 import "react-bootstrap-range-slider/dist/react-bootstrap-range-slider.css";
-import '../../../utils/sliderTemp.css';
+import "../../../utils/sliderTemp.css";
 class WireSize extends Component {
   state = {
     btnActive: false,
     rangeWire: 14,
     ModularConnector: {
-      FunctionalArea: +localStorage.getItem("FunctionalArea"),
+      FunctionalArea: localStorage.getItem("selectValue"),
       ComponentName: localStorage.getItem("ComponentName"),
       Voltage: +localStorage.getItem("Voltage"),
       Current1: +localStorage.getItem("Current1"),
@@ -56,7 +56,8 @@ class WireSize extends Component {
       let resJson = result;
       if (resJson.status === "Success") {
         console.log("Success", resJson);
-        localStorage.setItem("componentId", resJson.data.id);
+        localStorage.setItem("ModularConnectorId", resJson.data.id);
+        console.log(resJson.data.id);
       } else {
         console.log("Error while adding basics data");
       }

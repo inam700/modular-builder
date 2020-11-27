@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import { baseUrl } from "../../redux/BaseUrl";
-import {RegisterUrl} from '../../Services/ApiUrls'
+import { RegisterUrl } from "../../Services/ApiUrls";
 import "./register.css";
 
 import Loader from "react-loader-spinner";
@@ -82,7 +82,7 @@ export class Register extends Component {
       .then((response) => response.json())
       .then((res) => {
         if (res.status === "Success") {
-          console.log("Register Data",res);
+          console.log("Register Data", res);
           this.CheckProfileType(index, res.message, "green");
 
           this.setState({
@@ -193,16 +193,6 @@ export class Register extends Component {
   };
   FlightToLogIn = () => {
     window.location = "/login";
-  };
-  openDisclaimer = () => {
-    this.setState({
-      ShowDisclaimer: true,
-    });
-  };
-  CloseDiscliamer = () => {
-    this.setState({
-      ShowDisclaimer: false,
-    });
   };
 
   render() {

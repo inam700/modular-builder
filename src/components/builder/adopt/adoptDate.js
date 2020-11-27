@@ -11,26 +11,35 @@ class AdoptDate extends Component {
     this.handleDayClick = this.handleDayClick.bind(this);
     this.state = {
       selectedDays: [],
+      convertedDate: [],
       AddDate: {
-        StartedDates: localStorage.getItem("StartedDates"),
-        ModularConnecterId: +localStorage.getItem("componentId"),
+        StartedDates: this.state,
       },
     };
   }
   handleRedirect = (e) => {
     e.preventDefault();
     this.props.nextStep();
-    localStorage.setItem("StartedDates", this.state.selectedDays);
-    callWithMethodAndData(AddDates, "POST", this.state.AddDate).then(
-      (result) => {
-        let resJson = result;
-        if (resJson.status === "Success") {
-          console.log("Success", resJson);
-        } else {
-          console.log("Error while adding Dates");
-        }
+    let dateArray = [];
+    for (let i = 0; i < this.state.selectedDays.length; i++) {
+      dateArray[i] = new Date(this.state.selectedDays[i])
+        .toISOString()
+        .slice(0, 10);
+    }
+    console.log(dateArray);
+    const dates = dateArray.toString();
+    const dateObject = {
+      StartedDates: dates,
+      ModularConnectorId: +localStorage.getItem("ModularConnectorId"),
+    };
+    callWithMethodAndData(AddDates, "POST", dateObject).then((result) => {
+      let resJson = result;
+      if (resJson.status === "Success") {
+        console.log("Success", resJson.data.StartedDates);
+      } else {
+        console.log("Error while adding Dates");
       }
-    );
+    });
   };
   back = (e) => {
     e.preventDefault();
@@ -65,6 +74,7 @@ class AdoptDate extends Component {
             We will get back to you as soon as possible and validate your
             desired date.
           </p>
+
           <DayPicker
             className={"class"}
             numberOfMonths={2}
@@ -75,7 +85,7 @@ class AdoptDate extends Component {
 
           <button
             className="button"
-            style={{ marginLeft: "15.5rem" }}
+            style={{ marginLeft: "27.5rem", width: "190px" }}
             onClick={this.handleRedirect}
           >
             Send

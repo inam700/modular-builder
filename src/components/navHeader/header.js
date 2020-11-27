@@ -25,7 +25,11 @@ class Header extends Component {
             {localStorage.getItem("isLogin") === "true" ? (
               <div className="sign-in">
                 <i className="fas fa-user" />
-                <Link style={{ marginRight: "15px" }} to="/myprofile">
+                <Link
+                  className="sign-in-link"
+                  style={{ marginRight: "15px" }}
+                  to="/myprofile"
+                >
                   {localStorage.getItem("email")}
                 </Link>
                 <Link className="sign-in-link" onClick={this.handleLogout}>

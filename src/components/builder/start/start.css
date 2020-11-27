@@ -44,7 +44,7 @@
 
 select {
   font-size: 1rem;
-  padding: 1em 9em 1em 1em;
+  padding: 1em 2em 1em 1em;
   background: #f5f5ef;
   color: #000000;
   border: 0;
@@ -79,13 +79,13 @@ select {
 .custom-dropdown-arrow::before {
   border-left: var(--size) solid transparent;
   border-right: var(--size) solid transparent;
-  border-bottom: 13px solid #2a649b;
-  top: 35%;
+  border-bottom: 10px solid #2a649b;
+  top: 40%;
 }
 
 .custom-dropdown-arrow::after {
   border-left: var(--size) solid transparent;
   border-right: var(--size) solid transparent;
-  border-top: 13px solid #2a649b;
-  top: 65%;
+  border-top: 10px solid #2a649b;
+  top: 63%;
 }

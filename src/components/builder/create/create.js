@@ -20,13 +20,6 @@ class Create extends Component {
       width: 176,
       openModal: false,
       openModalFinalize: false,
-      CableConnector: {
-        Name: "Name",
-        Position: +localStorage.getItem("Position"),
-        Rows: +localStorage.getItem("Rows"),
-        OffsetChambers: +localStorage.getItem("Offset"),
-        ModularConnecterId: +localStorage.getItem("componentId"),
-      },
     };
 
     this.handleZoomIn = this.handleZoomIn.bind(this);
@@ -107,21 +100,27 @@ class Create extends Component {
     localStorage.getItem("isLogin") === "true"
       ? this.props.history.push("/adopt")
       : this.props.history.push("/register");
+    const ConnectorId = +localStorage.getItem("ModularConnectorId"),
+      CableConnector = {
+        Name: localStorage.getItem("Name"),
+        Position: +localStorage.getItem("Position"),
+        Rows: +localStorage.getItem("Rows"),
+        OffsetChambers: +localStorage.getItem("Offset"),
+        ModularConnectorId: ConnectorId,
+      };
 
     if (localStorage.getItem("isLogin") === "true") {
-      callWithMethodAndData(
-        CableConnection,
-        "POST",
-        this.state.CableConnector
-      ).then((result) => {
-        let resJson = result;
-        if (resJson.status === "Success") {
-          console.log("Success", resJson);
-        } else {
-          console.log("Error while adding create data");
+      callWithMethodAndData(CableConnection, "POST", CableConnector).then(
+        (result) => {
+          let resJson = result;
+          if (resJson.status === "Success") {
+            console.log("Success", resJson);
+          } else {
+            console.log("Error while adding create data");
+          }
+          this.props.history.push("/adopt");
         }
-        this.props.history.push("/adopt");
-      });
+      );
     } else {
       this.props.history.push("/register");
     }
@@ -144,7 +143,6 @@ class Create extends Component {
         <div className="create-container">
           <div className="text">
             <h2>Create your modular connector</h2>
-            {console.log(localStorage.getItem("token"))}
             <p>
               Select your cable contact and add it to your module. You can alter
               the cable contact in positions and rows.
@@ -326,13 +324,14 @@ class Create extends Component {
                   <Button
                     className="button border-0 mr-2"
                     style={{ backgroundColor: "var(--primary-color)" }}
-                    onClick={this.closeModalFinalize}
+                    onClick={(this.closeModalFinalize, this.handleRedirect)}
                   >
                     FINALIZE
                   </Button>
                   <Button
                     className="button border-0 ml-2"
                     style={{ backgroundColor: "gray" }}
+                    onClick={this.closeModalFinalize}
                   >
                     GO BACK TO CREATE
                   </Button>

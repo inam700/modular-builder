@@ -1,27 +1,25 @@
+.overview-profile .top {
+  padding-top: 25px;
+  padding-bottom: 25px;
+  padding-left: 20px;
+}
+.overview-profile .top span {
+  font-family: A_book;
+  color: #0266a1;
+  font-size: 15px;
+}
+.back {
+  background-color: aqua;
+}
 
-  .overview-profile .top {
-    padding-top: 25px;
-    padding-bottom: 25px;
-    padding-left: 20px;
-  }
-  .overview-profile .top span {
-    font-family: A_book;
-    color: #0266A1;
-    font-size: 15px;
-  }
-  .back
-  {
-    background-color: aqua;
-  }
-
-  .configuration-profile ul {
-    border-bottom: none;
-    display: -webkit-box;
-    display: -ms-flexbox;
-    display: flex;
-    -webkit-box-pack: justify;
-        -ms-flex-pack: justify;
-            justify-content: space-between;
-    width: 89%;
-    margin-left: auto;
-  }
+.configuration-profile ul {
+  border-bottom: none;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+  -ms-flex-pack: justify;
+  justify-content: space-between;
+  width: 89%;
+  margin-left: auto;
+}

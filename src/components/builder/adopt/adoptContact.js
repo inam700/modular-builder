@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import "./adopt.css";
 import img from "../../../assets/img/Image.png";
+import { Link } from "react-router-dom";
 
 class AdoptContact extends Component {
   continue = (e) => {
@@ -19,10 +20,16 @@ class AdoptContact extends Component {
           </p>
           <img src={img} alt="adopt" />
           <div className="buttons">
-            <button className="button">Contact TE</button>
-            <button className="button" style={{ backgroundColor: "#707070" }}>
-              Start New Build
+            <button className="button" onClick={this.continue}>
+              Contact TE
             </button>
+            <Link
+              className="button"
+              to="/"
+              style={{ backgroundColor: "#707070" }}
+            >
+              Start New Build
+            </Link>
           </div>
         </div>
       </div>
