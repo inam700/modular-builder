@@ -84,7 +84,7 @@ class SettingTwo extends Component {
               className="range-move-btn ml-custom"
               onClick={this.handlePositiveRange}
             >
-              <span>+</span> <br /> 10
+              <span>+</span> <br /> 20
             </button>
           </div>
         </div>
