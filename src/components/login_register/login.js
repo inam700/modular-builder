@@ -109,7 +109,7 @@ export class login extends Component {
                 <div action="">
                   <input
                     className="mb-4"
-                    type="text"
+                    type="email"
                     placeholder="Email Address"
                     onChange={(e) => this.setState({ email: e.target.value })}
                   />

@@ -54,6 +54,7 @@ select {
 
 .custom-dropdown {
   position: relative;
+  outline: none;
   
 }
 
