@@ -78,7 +78,7 @@ class SettingTwo extends Component {
               tooltipPlacement="top"
               tooltip="on"
               min={0}
-              max={10}
+              max={20}
             />
             <button
               className="range-move-btn ml-custom"
