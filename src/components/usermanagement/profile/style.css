@@ -8,18 +8,18 @@
   margin-bottom: 12px;
 }
 .myfontfamily {
-  font-family: A_light;
   margin-bottom: 15px;
 }
 .overviewheadings {
   /*border: 2px solid #adacac !important;*/
   height: 45px;
-  width: 93%;
+  width: 100%;
   background-color: #f7f7f7 !important;
   border: none !important;
   padding-top: 15px;
   text-align: center;
   color: #2a659c;
+  margin-left: 2rem;
 }
 .carddesign {
   padding-top: 10px;
@@ -76,8 +76,9 @@
   width: 140px;
   height: 30px;
   border-radius: 0 !important;
-  font-size: 10px !important;
-  padding-top: 8px !important;
+  font-size: 12px !important;
+  padding-top: 5px !important;
+
 }
 .progressbar {
   margin-top: 10px;
@@ -199,4 +200,12 @@ input[type="checkbox"]:before {
 }
 .devscroller::-webkit-scrollbar-thumb:hover {
   background: #006da0;
+}
+
+
+.input-style{
+  border: none;
+  outline: none;
+  text-align: center;
+  color: #336699;
 }

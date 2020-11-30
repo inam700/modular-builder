@@ -43,7 +43,7 @@ class SettingOne extends Component {
               <img src={item.imgURL} alt="single-card" />
               <h5
                 style={{
-                  fontSize: "15px",
+                  fontSize: "12px",
                   fontWeight: "500",
                 }}
               >

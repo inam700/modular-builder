@@ -161,7 +161,7 @@ class Create extends Component {
                 </div>
                 <div className="icon">
                   <i className="fas fa-sync-alt" onClick={this.handleReset} />
-                  <span style={{ marginLeft: "15px" }}>RESET</span>
+                  <span style={{ marginLeft: "8px" }}>RESET</span>
                 </div>
               </div>
               <div className="image">
@@ -215,7 +215,13 @@ class Create extends Component {
           {localStorage.getItem("activateButton") === "true" ? (
             <Link
               className="button"
-              style={{ float: "right", marginRight: "-10px" }}
+              style={{
+                float: "right",
+                marginRight: "-10px",
+                fontSize: "12px",
+                width: "210px",
+                height: "30px",
+              }}
               onClick={this.handleRedirect}
             >
               Finalize
@@ -224,7 +230,13 @@ class Create extends Component {
             <button
               className="button button-disabled"
               disabled
-              style={{ float: "right", marginRight: "-10px" }}
+              style={{
+                float: "right",
+                marginRight: "-10px",
+                fontSize: "12px",
+                width: "210px",
+                height: "30px",
+              }}
             >
               Finalize
             </button>

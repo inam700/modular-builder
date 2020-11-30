@@ -70,7 +70,7 @@ export class login extends Component {
 
                 localStorage.getItem("CreatePage") === "true"
                   ? (window.location = "/create")
-                  : (window.location = "/");
+                  : (window.location = "/basics");
               }
             );
           } else {

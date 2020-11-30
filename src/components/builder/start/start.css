@@ -22,7 +22,7 @@
 }
 
 .start h4 {
-  font-size: 16px;
+  font-size: 12px;
   margin-top: 50px;
   margin-bottom: 15px;
   text-transform: uppercase;
@@ -36,6 +36,7 @@
   background: var(--bg-primary);
   padding: 5px 10px;
   margin-bottom: 50px;
+  font-size: 12px;
 }
 .start input::placeholder {
   color: #3f4348 !important;
@@ -44,14 +45,16 @@
 
 select {
   font-size: 1rem;
-  padding: 1em 2em 1em 1em;
+  padding: 1.5em 7.5em 1.5em 1em;
   background: #f5f5ef;
   color: #000000;
   border: 0;
+  font-size: 12px !important;
 }
 
 .custom-dropdown {
   position: relative;
+  
 }
 
 .custom-dropdown-arrow {
@@ -66,7 +69,7 @@ select {
 }
 .custom-dropdown-arrow::before,
 .custom-dropdown-arrow::after {
-  --size: 0.45em;
+  --size: 0.35em;
 
   content: "";
   position: absolute;
@@ -79,13 +82,13 @@ select {
 .custom-dropdown-arrow::before {
   border-left: var(--size) solid transparent;
   border-right: var(--size) solid transparent;
-  border-bottom: 10px solid #2a649b;
-  top: 40%;
+  border-bottom: 8px solid #2a649b;
+  top: 42%;
 }
 
 .custom-dropdown-arrow::after {
   border-left: var(--size) solid transparent;
   border-right: var(--size) solid transparent;
-  border-top: 10px solid #2a649b;
-  top: 63%;
+  border-top: 8px solid #2a649b;
+  top: 60%;
 }

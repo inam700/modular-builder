@@ -85,7 +85,7 @@ class AdoptDate extends Component {
 
           <button
             className="button"
-            style={{ marginLeft: "27.5rem", width: "190px" }}
+            style={{ marginLeft: "21rem", width: "190px",fontSize:"14px" }}
             onClick={this.handleRedirect}
           >
             Send

@@ -22,12 +22,7 @@ class Basics extends Component {
       const { step } = this.state;
       switch (step) {
         case 1:
-          return (
-            <Voltage
-              nextStep={this.nextStep}
-              step={this.state.step}
-            />
-          );
+          return <Voltage nextStep={this.nextStep} step={this.state.step} />;
         case 2:
           return (
             <Current

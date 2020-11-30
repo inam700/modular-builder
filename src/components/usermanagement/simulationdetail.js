@@ -38,10 +38,10 @@ class simulationdetail extends Component {
     var data = this.state.data;
     console.log("data", data);
     this.setState({
-      ProjectName: data.simulationName,
+      ProjectName: data.componentName,
       createdAt: data.createdAt,
       SimId: data.id,
-      ProjectNamecopy: data.simulationName,
+      ProjectNamecopy: data.componentName,
     });
     let method = "GET";
     let type = "simulations/getSimulation?id=" + data.id;
@@ -140,13 +140,12 @@ class simulationdetail extends Component {
     return (
       <div className="myfontfamily mycontainer">
         <div className="row">
-          <div className="col-12 mt-5">
+          <div className="col-11 mt-5">
             <div className="overviewheadings">
               <p className="textuppercase"> my connectors</p>
             </div>
           </div>
         </div>
-
         <div className="simulation">
           <div className="container">
             <div className="main-section">

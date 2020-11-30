@@ -4,10 +4,18 @@ import "react-bootstrap-range-slider/dist/react-bootstrap-range-slider.css";
 import "../../../utils/sliderTemp.css";
 class SettingTwo extends Component {
   state = {
-    rangePositions: 0,
+    rangePositions: 5,
     rowsValue: "1",
     offSetValue: "1",
   };
+  // componentDidMount(){
+  // if(localStorage.getItem("isLogin")==="true"){
+  //   this.setState({
+
+  //   })
+
+  // }
+  // }
   handleRows = (e) => {
     this.setState({ rowsValue: e.target.value });
   };
@@ -17,6 +25,7 @@ class SettingTwo extends Component {
   handleChange = (e) => {
     this.setState({ rangePositions: e.target.value });
   };
+
   handleNegativeRange = () => {
     const minValue = 1;
 
@@ -136,7 +145,14 @@ class SettingTwo extends Component {
 
         <button
           className="button"
-          style={{ float: "right", margin: "0px 20px 20px 0px" }}
+          style={{
+            float: "right",
+            marginBottom: "12px",
+            marginRight: "5px",
+            fontSize: "12px",
+            width:"210px",
+            height:"30px"
+          }}
           onClick={this.handleSubmit}
         >
           Apply

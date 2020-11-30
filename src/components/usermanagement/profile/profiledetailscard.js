@@ -4,6 +4,7 @@ import Card from "react-bootstrap/Card";
 import "./style.css";
 import "../dev2.css";
 import DisplayPic from "../../../img/dp.jpg";
+import Dummy from "../../../img/dummyprofile.png";
 import Form from "react-bootstrap/Form";
 import Accordion from "react-bootstrap/Accordion";
 import { Row, Col } from "react-bootstrap";
@@ -169,14 +170,24 @@ export class profiledetailcard extends Component {
       <div className="container">
         <div className="row">
           <div className="col-2">
-            <p className="myprofilecarddesign">Full Name</p>
-            <p className="myprofilecarddesign">E-Mail Address</p>
-            <p className="myprofilecarddesign">Company Name</p>
-            <p className="myprofilecarddesign">Phone Number</p>
-            <p className="myprofilecarddesign">Position</p>
+            <p className="myprofilecarddesign" style={{ textAlign: "center" }}>
+              Full Name
+            </p>
+            <p className="myprofilecarddesign" style={{ textAlign: "center" }}>
+              E-Mail Address
+            </p>
+            <p className="myprofilecarddesign" style={{ textAlign: "center" }}>
+              Company Name
+            </p>
+            <p className="myprofilecarddesign" style={{ textAlign: "center" }}>
+              Phone Number
+            </p>
+            <p className="myprofilecarddesign" style={{ textAlign: "center" }}>
+              Position
+            </p>
             <div className="row">
               <Button
-                className="profilebtns textuppercase ml-3 "
+                className="profilebtns textuppercase ml-3"
                 onClick={() => {
                   this.submit();
                 }}
@@ -192,22 +203,19 @@ export class profiledetailcard extends Component {
               <input
                 onChange={(item) => this.valid(item, "name")}
                 value={this.state.Name}
-                style={{ border: "none", outline: "none" }}
+                className="input-style"
               ></input>
             </p>
             <p className="myprofilecarddesign">
               {" "}
-              <input
-                value={this.state.Email}
-                style={{ border: "none", outline: "none" }}
-              ></input>
+              <input value={this.state.Email} className="input-style"></input>
             </p>
             <p className="myprofilecarddesign">
               {" "}
               <input
                 onChange={(item) => this.valid(item, "company")}
                 value={this.state.CompanyName}
-                style={{ border: "none", outline: "none" }}
+                className="input-style"
               ></input>
             </p>
             <p className="myprofilecarddesign">
@@ -215,14 +223,14 @@ export class profiledetailcard extends Component {
               <input
                 onChange={(item) => this.valid(item, "phone")}
                 value={this.state.phoneNum}
-                style={{ border: "none", outline: "none" }}
+                className="input-style"
               ></input>
             </p>
             <p className="myprofilecarddesign">
               {" "}
               <input
                 onChange={(item) => this.valid(item, "position")}
-                style={{ border: "none", outline: "none" }}
+                className="input-style"
                 value={this.state.position}
               ></input>
             </p>
@@ -230,7 +238,9 @@ export class profiledetailcard extends Component {
           {/* <div className="col-sm-3 pl-5 d-flex">
           </div> */}
           <div className="col-2">
-            <p className="myprofilecarddesign">Password</p>
+            <p className="myprofilecarddesign" style={{ textAlign: "center" }}>
+              Password
+            </p>
           </div>
           <div className="col-2">
             <p className="myprofilecarddesign">
@@ -238,7 +248,7 @@ export class profiledetailcard extends Component {
               <input
                 onChange={(item) => this.valid(item, "password")}
                 className="passwordinputfield"
-                style={{ textAlign: "left", border: "none" }}
+                className="input-style"
                 type="password"
                 value={this.state.password}
                 placeholder="XXXXXXXXXX"
@@ -251,13 +261,13 @@ export class profiledetailcard extends Component {
                 {this.state.profilePic ? (
                   <img
                     className=" ml-5 avater m-0 font-weight-bold"
-                    src={DisplayPic}
+                    src={Dummy}
                     alt="Image"
                   />
                 ) : (
                   <img
                     className=" ml-5 avater m-0 font-weight-bold"
-                    src={DisplayPic}
+                    src={Dummy}
                     alt="Image"
                   />
                 )}

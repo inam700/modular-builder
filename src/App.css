@@ -16,7 +16,7 @@ body {
 }
 body {
   color: #000000;
-  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif ;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
 }
 
 a {
@@ -94,6 +94,7 @@ input::placeholder {
   text-align: center;
   text-transform: uppercase;
   font-size: 15px;
+  font-weight: 800;
   opacity: 0.7;
 }
 .checkbox {
@@ -126,7 +127,7 @@ input::placeholder {
   width: 27px;
   background-color: transparent;
   border-radius: 4px;
-  border: 1px solid #000000;
+  border: 2px solid grey;
 }
 .checkbox input:checked ~ .checkbox-custom {
   background-color: transparent;
@@ -135,7 +136,7 @@ input::placeholder {
   -ms-transform: rotate(0deg) scale(1);
   transform: rotate(0deg) scale(1);
   opacity: 1;
-  border: 1px solid #000000;
+  border: 2px solid grey;
 }
 
 .checkbox .checkbox-custom::after {
@@ -146,7 +147,7 @@ input::placeholder {
   height: 0px;
   width: 0px;
   border-radius: 5px;
-  border: solid #000000;
+  border: solid grey;
   border-width: 0 3px 3px 0;
   -webkit-transform: rotate(0deg) scale(0);
   -ms-transform: rotate(0deg) scale(0);
@@ -163,7 +164,7 @@ input::placeholder {
   top: 4px;
   width: 6px;
   height: 15px;
-  border: solid #000000;
+  border: solid grey;
   border-width: 0 1px 1px 0;
   background-color: transparent;
   border-radius: 0;

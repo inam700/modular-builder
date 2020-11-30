@@ -47,13 +47,14 @@
   width: 90%;
 }
 .basic .content .basic-data h2 {
-  font-weight: 600;
+  font-size: 15px;
   text-transform: uppercase;
 }
 .basic .content .basic-data h3 {
   margin-left: 21px;
   font-size: 20px;
   margin-bottom: 8px;
+  font-size: 15px;
 }
 @media screen and (max-width: 500px) {
   .basic .content {

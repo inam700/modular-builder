@@ -173,7 +173,7 @@ class myprojects extends Component {
           className="row mt-4"
           style={this.state.groups ? {} : { display: "none" }}
         >
-          <div className="col-12">
+          <div className="col-11">
             <div className="overviewheadings">
               <p className="textuppercase"> my Connectors</p>
             </div>

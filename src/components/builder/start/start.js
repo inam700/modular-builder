@@ -121,7 +121,6 @@ class Start extends Component {
             </select>
             <span className="custom-dropdown-arrow"></span>
           </div>
-          <p>{this.state.dropDownValue}</p>
           <h4>Name Your Component:</h4>
           <input
             type="text"

@@ -20,17 +20,9 @@ export class profilecard extends Component {
         >
           <div className="userCard">
             {localStorage.getItem("picture") ? (
-              <img
-                className="avater m-0 font-weight-bold"
-                src={DispalyPic}
-                alt="Image"
-              />
+              <img className="avater m-0 font-weight-bold" src={Dummy} alt="Image" />
             ) : (
-              <img
-                className="avater m-0 font-weight-bold"
-                src={Dummy}
-                alt="Image"
-              />
+              <img className="avater m-0 font-weight-bold" src={Dummy} alt="Image" />
             )}
             <div className="userCardBottom mt-4">
               <h6 style={{ color: "darkblue" }}>

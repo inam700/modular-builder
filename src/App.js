@@ -23,13 +23,16 @@ function App() {
   return (
     <div className="App">
       <Header />
-      <Route exact path="/" component={StartPage} />
-      <Route exact path="/basics" component={BasicsPage} />
-      <Route exact path="/create" component={CreatePage} />
-      <Route exact path="/adopt" component={AdoptPage} />
-      <Route exact path="/login" component={Login} />
-      <Route exact path="/register" component={Register} />
-      <Route exact path="/forgotpassword" component={ForgotPassword} />
+      <Switch>
+          <Route exact path="/" component={StartPage} />
+          <Route  path="/basics" component={BasicsPage} />
+          <Route  path="/create" component={CreatePage} />
+          <Route  path="/adopt" component={AdoptPage} />
+          <Route  path="/login" component={Login} />
+          <Route  path="/register" component={Register} />
+          <Route  path="/forgotpassword" component={ForgotPassword} />
+      </Switch>
+
 
       <Route path="/myprofile">
         <Usermanagement_navbar setactive={"myprofile"}></Usermanagement_navbar>
@@ -46,11 +49,11 @@ function App() {
         <Sidebar></Sidebar>
         <SimulationDetail></SimulationDetail>
       </Route>
-      {/* <Route path="/Projectdetail">
+      <Route path="/Projectdetail">
         <Usermanagement_navbar setactive={"myprojects"}></Usermanagement_navbar>
         <Sidebar></Sidebar>
         <ProjectDetail></ProjectDetail>
-      </Route> */}
+      </Route>
       <Route path="/CompareSimulations">
         <Usermanagement_navbar setactive={"myprojects"}></Usermanagement_navbar>
         <Sidebar></Sidebar>

@@ -9,15 +9,6 @@ class WireSize extends Component {
   state = {
     btnActive: false,
     rangeWire: 14,
-    ModularConnector: {
-      FunctionalArea: localStorage.getItem("selectValue"),
-      ComponentName: localStorage.getItem("ComponentName"),
-      Voltage: +localStorage.getItem("Voltage"),
-      Current1: +localStorage.getItem("Current1"),
-      Current2: +localStorage.getItem("Current2"),
-      WireSize: +localStorage.getItem("WireSize"),
-      UserId: +localStorage.getItem("id"),
-    },
   };
   handleWireValue = (e) => {
     this.setState({ rangeWire: e.target.value });
@@ -48,23 +39,29 @@ class WireSize extends Component {
     }
   };
   handleRedirect = () => {
-    callWithMethodAndData(
-      ModularBuilder,
-      "POST",
-      this.state.ModularConnector
-    ).then((result) => {
-      let resJson = result;
-      if (resJson.status === "Success") {
-        console.log("Success", resJson);
-        localStorage.setItem("ModularConnectorId", resJson.data.id);
-        console.log(resJson.data.id);
-      } else {
-        console.log("Error while adding basics data");
+    const ModularConnector = {
+      FunctionalArea: localStorage.getItem("selectValue"),
+      ComponentName: localStorage.getItem("ComponentName"),
+      Voltage: +localStorage.getItem("Voltage"),
+      Current1: +localStorage.getItem("Current1"),
+      Current2: +localStorage.getItem("Current2"),
+      WireSize: this.state.rangeWire,
+      UserId: +localStorage.getItem("id"),
+    };
+    callWithMethodAndData(ModularBuilder, "POST", ModularConnector).then(
+      (result) => {
+        let resJson = result;
+        if (resJson.status === "Success") {
+          console.log("Success", resJson);
+          localStorage.setItem("ModularConnectorId", resJson.data.id);
+          console.log(resJson.data.id);
+        } else {
+          console.log("Error while adding basics data");
+        }
       }
-    });
+    );
   };
   handleChange = () => {
-    localStorage.setItem("WireSize", this.state.rangeWire);
     console.log(this.state.ModularConnector);
     this.handleRedirect();
   };

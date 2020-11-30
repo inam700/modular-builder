@@ -4,53 +4,10 @@ import Button from "react-bootstrap/Button";
 import Card from "react-bootstrap/Card";
 import simulation from "../../img/simulation.png";
 import { ButtonGroup } from "react-bootstrap";
-import ProgressBar from "react-bootstrap/ProgressBar";
 import { callWithMethodAndNoData } from "../../Services/ApiServices";
 
 class overview extends Component {
   state = {
-    connectors: [
-      {
-        id: 1,
-        functionalArea: 1,
-        componentName: "connector 1",
-        voltage: 2,
-        current1: 12,
-        current2: 12,
-        wireSize: 1.0,
-        cableConnecton: {
-          id: 5,
-          modularConnectorId: 1,
-          name: "cable connector",
-          position: 1,
-          offsetChambers: 1,
-          rows: 2,
-          createdAt: "2020-11-11T12:54:46.943",
-          updatedAt: "2020-11-11T12:54:46.943",
-        },
-        updatedAt: "12.11.2020 10:00 AM",
-      },
-      {
-        id: 2,
-        functionalArea: 1,
-        componentName: "connector 2",
-        voltage: 2,
-        current1: 12,
-        current2: 12,
-        wireSize: 1.0,
-        cableConnecton: {
-          id: 5,
-          modularConnectorId: 1,
-          name: "cable connector",
-          position: 1,
-          offsetChambers: 1,
-          rows: 2,
-          createdAt: "2020-11-11T12:54:46.943",
-          updatedAt: "2020-11-11T12:54:46.943",
-        },
-        updatedAt: "12.11.2020 10:00 AM",
-      },
-    ],
     myConnectors: [],
   };
 
@@ -73,7 +30,7 @@ class overview extends Component {
     localStorage.setItem("detail", JSON.stringify(detail));
     window.location = "/detail";
   }
- 
+
   render() {
     return (
       <div className="myfontfamily mycontainer">
